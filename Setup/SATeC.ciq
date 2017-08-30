@@ -1,0 +1,101 @@
+﻿<project version = 9 civer = 7.4.1 winver = "2.12/6.2.9200" >
+   <autorun >0</>
+   <autoclose >1</>
+   <compname >Inventiva GS</>
+   <produrl >http://www.inventivags.com/</>
+   <ver >1.0.0.0</>
+   <supurl ></>
+   <updurl ></>
+   <dlgfont >verdana</>
+   <headlogo >E:\Inventiva\inventiva.jpg</>
+   <dlgfontsize >s8</>
+   <output >E:\Inventiva\Proyectos\SATeC\Setup</>
+   <exename >SATeC.exe</>
+   <beffile ></>
+   <aftfile ></>
+   <uninclude >1</>
+   <lang >spanish</>
+   <addlang ></>
+   <selfextr >1</>
+   <instpath ></>
+   <voltype >nolimit</>
+   <volsize ></>
+   <volpattern >disk%i.pak</>
+   <password ></>
+   <progname >SATeC</>
+   <appname ></>
+   <bl ></>
+   <blurl ></>
+   <unpath >inst</>
+   <unexe >UninstallSATeC.exe</>
+   <unlog >uninstall.ini</>
+   <installroot ></>
+   <uninstallroot ></>
+   <icofile >E:\Inventiva\Proyectos\SATeC\Resources\SATeC_Logo.ico</>
+   <noadmin >0</>
+   <comptype >default</>
+   <ratio >r5</>
+   <solid >1</>
+   <desc ></>
+   <srclist >
+      <rows ></>
+   </>
+   <path >inst</>
+   <custpath ></>
+   <ifexist >over</>
+   <if ></>
+   <varlist >
+      <rows ></>
+   </>
+   <shpath >prog</>
+   <shfile ></>
+   <file ></>
+   <cmdline ></>
+   <comment ></>
+   <icon ></>
+   <work >inst</>
+   <defwork ></>
+   <runas >norm</>
+   <root >curuser</>
+   <subkey ></>
+   <reglist >
+      <rows ></>
+   </>
+   <shfolder ></>
+   <silentpar >-silent</>
+   <ignnotfound >0</>
+   <srcfolder >E:\Inventiva\Proyectos\SATeC\Release</>
+   <exclude ></>
+   <licfile ></>
+   <readfile ></>
+   <leftimg >E:\Inventiva\satec2.jpg</>
+   <caption ></>
+   <iswel >1</>
+   <isfin >1</>
+   <enforce >0</>
+   <savepath >0</>
+   <autoprog >1</>
+   <opengroup >0</>
+   <shlist >
+      <rows >
+         <_ >
+            <shpath >desk</>
+            <shfile >SATeC</>
+            <path >inst</>
+            <file >\App\SATeC.exe</>
+            <cmdline ></>
+            <icon >E:\Inventiva\Proyectos\SATeC\Resources\SATeC_Logo.ico</>
+            <work >inst</>
+            <defwork >\App</>
+         </>
+      </>
+   </>
+   <unicon >E:\Inventiva\Proyectos\SATeC\Resources\SATeC_Logo.ico</>
+   <unsh >0</>
+   <unaddrem >1</>
+   <unname ></>
+   <ifile ></>
+   <unleftimg >E:\Inventiva\satec2.jpg</>
+   <uncaption ></>
+   <isunfin >1</>
+</>

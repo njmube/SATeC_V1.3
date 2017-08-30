@@ -1,0 +1,685 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F6EA843A-4C61-4B0A-9841-819E264F6923}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SATeC</RootNamespace>
+    <AssemblyName>SATeC</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>D:\InventivaGS\2014\Noviembre\03-11-2014\codigo\Fuentes\Publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\SATeC_Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>38CD6EB13FA10DAAF264CC67B5869D340037F835</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SATeC_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="ExpandableGridView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\ExpandableGridView.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.reportviewer.common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Microsoft.reportviewer.common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administracion\frmCargaMapeoCuentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\frmCargaMapeoCuentas.Designer.cs">
+      <DependentUpon>frmCargaMapeoCuentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\frmCargarCatalogoCuentasSAT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\frmCargarCatalogoCuentasSAT.Designer.cs">
+      <DependentUpon>frmCargarCatalogoCuentasSAT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\frmCatalogoDeCuentas_Datos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\frmCatalogoDeCuentas_Datos.Designer.cs">
+      <DependentUpon>frmCatalogoDeCuentas_Datos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\frmCatalogosDeCuentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\frmCatalogosDeCuentas.Designer.cs">
+      <DependentUpon>frmCatalogosDeCuentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\frmCatalogosDeCuentasAuxiliares.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\frmCatalogosDeCuentasAuxiliares.Designer.cs">
+      <DependentUpon>frmCatalogosDeCuentasAuxiliares.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\frmCatalogoDeCuentasAuxiliares_Datos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\frmCatalogoDeCuentasAuxiliares_Datos.Designer.cs">
+      <DependentUpon>frmCatalogoDeCuentasAuxiliares_Datos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\frmEjercicioPeriodo_Datos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\frmEjercicioPeriodo_Datos.Designer.cs">
+      <DependentUpon>frmEjercicioPeriodo_Datos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\frmEjerciciosPeriodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\frmEjerciciosPeriodos.Designer.cs">
+      <DependentUpon>frmEjerciciosPeriodos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\frmSociedades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\frmSociedades.Designer.cs">
+      <DependentUpon>frmSociedades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\frmSociedad_Datos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\frmSociedad_Datos.Designer.cs">
+      <DependentUpon>frmSociedad_Datos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\frmUsuario_Datos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\frmUsuario_Datos.Designer.cs">
+      <DependentUpon>frmUsuario_Datos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balanza\frmConsultarBalanzasImportadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balanza\frmConsultarBalanzasImportadas.Designer.cs">
+      <DependentUpon>frmConsultarBalanzasImportadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balanza\frmImportarBalanza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balanza\frmImportarBalanza.Designer.cs">
+      <DependentUpon>frmImportarBalanza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balanza\frmValidarBalanzaImportadaConCatalogoDeCuentasSociedad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balanza\frmValidarBalanzaImportadaConCatalogoDeCuentasSociedad.Designer.cs">
+      <DependentUpon>frmValidarBalanzaImportadaConCatalogoDeCuentasSociedad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Balanza\frmValidarBalanzaImportadaConCodigoAgrupadorSAT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balanza\frmValidarBalanzaImportadaConCodigoAgrupadorSAT.Designer.cs">
+      <DependentUpon>frmValidarBalanzaImportadaConCodigoAgrupadorSAT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogoDeCuentas\frmConsultarCatalogoCuentasSAT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatalogoDeCuentas\frmConsultarCatalogoCuentasSAT.Designer.cs">
+      <DependentUpon>frmConsultarCatalogoCuentasSAT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogoDeCuentas\frmConsultarCatalogoDeCuentasSociedad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatalogoDeCuentas\frmConsultarCatalogoDeCuentasSociedad.Designer.cs">
+      <DependentUpon>frmConsultarCatalogoDeCuentasSociedad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmbeddedAssembly.cs" />
+    <Compile Include="frmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoading.Designer.cs">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogErrores.cs" />
+    <Compile Include="Modelos\ChequesDTO.cs" />
+    <Compile Include="Modelos\ComprobantesExtranjerosDTO.cs" />
+    <Compile Include="Modelos\ComprobantesNacionalesDTO.cs" />
+    <Compile Include="Modelos\ComprobantesNacionalesOtrosDTO.cs" />
+    <Compile Include="Modelos\OtroMetodosPagoDTO.cs" />
+    <Compile Include="Modelos\PolizasDTO.cs" />
+    <Compile Include="Modelos\TransaccionesDTO.cs" />
+    <Compile Include="Modelos\TransferenciasDTO.cs" />
+    <Compile Include="Polizas\frmImportarComprobantesExtranjeros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Polizas\frmImportarComprobantesExtranjeros.Designer.cs">
+      <DependentUpon>frmImportarComprobantesExtranjeros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Polizas\frmImportarComprobantesNacionalOtros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Polizas\frmImportarComprobantesNacionalOtros.Designer.cs">
+      <DependentUpon>frmImportarComprobantesNacionalOtros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Polizas\frmImportarOtroMetodoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Polizas\frmImportarOtroMetodoPago.Designer.cs">
+      <DependentUpon>frmImportarOtroMetodoPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Polizas\frmSeleccionarTipoPoliza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Polizas\frmSeleccionarTipoPoliza.Designer.cs">
+      <DependentUpon>frmSeleccionarTipoPoliza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Comun\frmMostrarArchivoXML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comun\frmMostrarArchivoXML.Designer.cs">
+      <DependentUpon>frmMostrarArchivoXML.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogoDeCuentas\frmRelacionDeCuentasConCodigoAgrupadorSAT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatalogoDeCuentas\frmRelacionDeCuentasConCodigoAgrupadorSAT.Designer.cs">
+      <DependentUpon>frmRelacionDeCuentasConCodigoAgrupadorSAT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogoDeCuentas\frmSeleccionarCuentaSATRelacionCuentasSociedad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatalogoDeCuentas\frmSeleccionarCuentaSATRelacionCuentasSociedad.Designer.cs">
+      <DependentUpon>frmSeleccionarCuentaSATRelacionCuentasSociedad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogoDeCuentas\frmSeleccionarEjercicioPeriodo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatalogoDeCuentas\frmSeleccionarEjercicioPeriodo.Designer.cs">
+      <DependentUpon>frmSeleccionarEjercicioPeriodo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CatalogoDeCuentas\frmConsultarCatalogosFormatoXML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatalogoDeCuentas\frmConsultarCatalogosFormatoXML.Designer.cs">
+      <DependentUpon>frmConsultarCatalogosFormatoXML.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database.cs" />
+    <Compile Include="DataBaseSQL.cs" />
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSociedades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSociedades.Designer.cs">
+      <DependentUpon>frmSociedades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General.cs" />
+    <Compile Include="INI.cs" />
+    <Compile Include="Polizas\frmConsultarPolizas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Polizas\frmConsultarPolizas.Designer.cs">
+      <DependentUpon>frmConsultarPolizas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Polizas\frmImportarCheques.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Polizas\frmImportarCheques.Designer.cs">
+      <DependentUpon>frmImportarCheques.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Polizas\frmImportarComprobantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Polizas\frmImportarComprobantes.Designer.cs">
+      <DependentUpon>frmImportarComprobantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Polizas\frmImportarPolizas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Polizas\frmImportarPolizas.Designer.cs">
+      <DependentUpon>frmImportarPolizas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Polizas\frmImportarTransferencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Polizas\frmImportarTransferencias.Designer.cs">
+      <DependentUpon>frmImportarTransferencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Polizas\frmValidarPolizas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Polizas\frmValidarPolizas.Designer.cs">
+      <DependentUpon>frmValidarPolizas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SATeCDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SATeCDataSet.cs">
+      <DependentUpon>SATeCDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SATeCDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SATeCDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SATeCDataSetBalanza.cs">
+      <DependentUpon>SATeCDataSetBalanza.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SATeCDataSetBalanza.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SATeCDataSetBalanza.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SATeCDataSetPolizas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SATeCDataSetPolizas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SATeC_DataSetPolizasCuentas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SATeC_DataSetPolizasCuentas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SelladoSAT.cs" />
+    <Compile Include="Serialization.cs" />
+    <Compile Include="Usuario.cs" />
+    <Compile Include="Win32.cs" />
+    <Compile Include="XSD\BalanzaComprobacion_1_1.cs">
+      <DependentUpon>BalanzaComprobacion_1_1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="XSD\CatalogoCuentas_1_1.cs">
+      <DependentUpon>CatalogoCuentas_1_1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="XSD\PolizasPeriodo_1_1.cs">
+      <DependentUpon>PolizasPeriodo_1_1.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Administracion\frmCargaMapeoCuentas.resx">
+      <DependentUpon>frmCargaMapeoCuentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\frmCargarCatalogoCuentasSAT.resx">
+      <DependentUpon>frmCargarCatalogoCuentasSAT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\frmCatalogoDeCuentas_Datos.resx">
+      <DependentUpon>frmCatalogoDeCuentas_Datos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\frmCatalogosDeCuentas.resx">
+      <DependentUpon>frmCatalogosDeCuentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\frmCatalogosDeCuentasAuxiliares.resx">
+      <DependentUpon>frmCatalogosDeCuentasAuxiliares.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\frmCatalogoDeCuentasAuxiliares_Datos.resx">
+      <DependentUpon>frmCatalogoDeCuentasAuxiliares_Datos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\frmEjercicioPeriodo_Datos.resx">
+      <DependentUpon>frmEjercicioPeriodo_Datos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\frmEjerciciosPeriodos.resx">
+      <DependentUpon>frmEjerciciosPeriodos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\frmSociedades.resx">
+      <DependentUpon>frmSociedades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\frmSociedad_Datos.resx">
+      <DependentUpon>frmSociedad_Datos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\frmUsuario_Datos.resx">
+      <DependentUpon>frmUsuario_Datos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balanza\frmConsultarBalanzasImportadas.resx">
+      <DependentUpon>frmConsultarBalanzasImportadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balanza\frmImportarBalanza.resx">
+      <DependentUpon>frmImportarBalanza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balanza\frmValidarBalanzaImportadaConCatalogoDeCuentasSociedad.resx">
+      <DependentUpon>frmValidarBalanzaImportadaConCatalogoDeCuentasSociedad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balanza\frmValidarBalanzaImportadaConCodigoAgrupadorSAT.resx">
+      <DependentUpon>frmValidarBalanzaImportadaConCodigoAgrupadorSAT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CatalogoDeCuentas\frmConsultarCatalogoCuentasSAT.resx">
+      <DependentUpon>frmConsultarCatalogoCuentasSAT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CatalogoDeCuentas\frmConsultarCatalogoDeCuentasSociedad.resx">
+      <DependentUpon>frmConsultarCatalogoDeCuentasSociedad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoading.resx">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Polizas\frmImportarComprobantesExtranjeros.resx">
+      <DependentUpon>frmImportarComprobantesExtranjeros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Polizas\frmImportarComprobantesNacionalOtros.resx">
+      <DependentUpon>frmImportarComprobantesNacionalOtros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Polizas\frmImportarOtroMetodoPago.resx">
+      <DependentUpon>frmImportarOtroMetodoPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Polizas\frmSeleccionarTipoPoliza.resx">
+      <DependentUpon>frmSeleccionarTipoPoliza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comun\frmMostrarArchivoXML.resx">
+      <DependentUpon>frmMostrarArchivoXML.cs</DependentUpon>
+      <LastGenOutput>frmMostrarArchivoXML1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CatalogoDeCuentas\frmRelacionDeCuentasConCodigoAgrupadorSAT.resx">
+      <DependentUpon>frmRelacionDeCuentasConCodigoAgrupadorSAT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CatalogoDeCuentas\frmSeleccionarCuentaSATRelacionCuentasSociedad.resx">
+      <DependentUpon>frmSeleccionarCuentaSATRelacionCuentasSociedad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CatalogoDeCuentas\frmSeleccionarEjercicioPeriodo.resx">
+      <DependentUpon>frmSeleccionarEjercicioPeriodo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CatalogoDeCuentas\frmConsultarCatalogosFormatoXML.resx">
+      <DependentUpon>frmConsultarCatalogosFormatoXML.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSociedades.resx">
+      <DependentUpon>frmSociedades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Polizas\frmConsultarPolizas.resx">
+      <DependentUpon>frmConsultarPolizas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Polizas\frmImportarCheques.resx">
+      <DependentUpon>frmImportarCheques.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Polizas\frmImportarComprobantes.resx">
+      <DependentUpon>frmImportarComprobantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Polizas\frmImportarPolizas.resx">
+      <DependentUpon>frmImportarPolizas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Polizas\frmImportarTransferencias.resx">
+      <DependentUpon>frmImportarTransferencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Polizas\frmValidarPolizas.resx">
+      <DependentUpon>frmValidarPolizas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Balanza.rdlc" />
+    <EmbeddedResource Include="Reportes\BalanzaSAT.rdlc" />
+    <EmbeddedResource Include="Reportes\CatalogoCuentas.rdlc" />
+    <EmbeddedResource Include="Reportes\CatalogoSAT.rdlc" />
+    <EmbeddedResource Include="Reportes\CatalogoSociedad.rdlc" />
+    <EmbeddedResource Include="Reportes\Poliza.rdlc" />
+    <EmbeddedResource Include="Reportes\PolizaCuentas.rdlc" />
+    <None Include="app.config" />
+    <None Include="bin\Debug\SATeC.ini" />
+    <None Include="Properties\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SATeC.ini" />
+    <None Include="SATeCDataSet.xsc">
+      <DependentUpon>SATeCDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SATeCDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SATeCDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SATeCDataSet.xss">
+      <DependentUpon>SATeCDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SATeCDataSetBalanza.xsc">
+      <DependentUpon>SATeCDataSetBalanza.xsd</DependentUpon>
+    </None>
+    <None Include="SATeCDataSetBalanza.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SATeCDataSetBalanza.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SATeCDataSetBalanza.xss">
+      <DependentUpon>SATeCDataSetBalanza.xsd</DependentUpon>
+    </None>
+    <None Include="SATeCDataSetPolizas.xsc">
+      <DependentUpon>SATeCDataSetPolizas.xsd</DependentUpon>
+    </None>
+    <None Include="SATeCDataSetPolizas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SATeCDataSetPolizas.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SATeCDataSetPolizas.xss">
+      <DependentUpon>SATeCDataSetPolizas.xsd</DependentUpon>
+    </None>
+    <None Include="SATeC_DataSetPolizasCuentas.xsc">
+      <DependentUpon>SATeC_DataSetPolizasCuentas.xsd</DependentUpon>
+    </None>
+    <None Include="SATeC_DataSetPolizasCuentas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SATeC_DataSetPolizasCuentas.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SATeC_DataSetPolizasCuentas.xss">
+      <DependentUpon>SATeC_DataSetPolizasCuentas.xsd</DependentUpon>
+    </None>
+    <None Include="XSD\BalanzaComprobacion_1_1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="XSD\CatalogoCuentas_1_1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="XSD\CatalogosParaEsqContE.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="XSD\PolizasPeriodo_1_1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aceptar_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancelar_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lock_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lock_32x32w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Agregar_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cerrar_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Borrar_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Guardar_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SATeC-Transparente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MostrarSoloCuentasNoRelacionadas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MostrarTodasCuentas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SATeC.ini" />
+    <None Include="Resources\Validar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Convertir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Descargar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SATeC_Logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Microsoft.reportviewer.common.dll" />
+    <EmbeddedResource Include="Microsoft.ReportViewer.WinForms.dll" />
+    <Content Include="Resources\loading.gif" />
+    <Content Include="Resources\sellar.png" />
+    <EmbeddedResource Include="ExpandableGridView.dll" />
+    <EmbeddedResource Include="ICSharpCode.SharpZipLib.dll" />
+    <Content Include="Resources\excel22x22.png" />
+    <None Include="Resources\Licence.INI.txt" />
+    <None Include="Resources\License.txt" />
+    <Content Include="Resources\pdf22x22.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
