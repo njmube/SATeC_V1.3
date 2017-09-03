@@ -66,7 +66,20 @@ namespace SATeC {
         private void cmdAceptar_Click(object sender, EventArgs e) {
             Cursor = Cursors.WaitCursor;
             try {
-                if(validaUsuario()) {
+
+                if (string.IsNullOrEmpty(txtUsuario.Text.Trim()))
+                {
+                    General.muestraMensaje("Se requiere Usuario");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(txtContraseña.Text.Trim()))
+                {
+                    General.muestraMensaje("Se requiere Contraseña");
+                    return;
+                }
+
+                if (validaUsuario()) {
                     frmMain mainWindow = new frmMain();
                     mainWindow.Show();
 

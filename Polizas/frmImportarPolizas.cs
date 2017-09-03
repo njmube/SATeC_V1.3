@@ -152,7 +152,10 @@ namespace SATeC.Polizas
         //VHJC Funcion que valida que los datos de las pólizas esten completos y correctos
         private bool validaPolizas()
         {
-            bool Valida = true;            
+            ValidaNumeroOrden();
+            ValidaNumeroTramite();
+
+            bool Valida = true;
 
             if (cmbEjercicioPeriodo.SelectedIndex == -1)
             {
@@ -599,15 +602,13 @@ namespace SATeC.Polizas
 
                         }
                     }
-                }           
+                }
             }
         }
         private void cmdGuardar_Click(object sender, EventArgs e)
         {
-            Cursor = Cursors.WaitCursor;
-            bool Salir = false;
-
             // VERSION DEMO RESTRINGIDA.
+            //bool Salir = false;
             //int totalPolizas = int.Parse(Properties.Resources.TotalPolizas);
 
             //if (totalPolizasImportadas > totalPolizas)
@@ -622,15 +623,11 @@ namespace SATeC.Polizas
             //}
 
             EjecutarPoliza();
-            Salir = true;
-
-            Cursor = Cursors.Default;
-
-            if (Salir)
-                this.Close();
         }
         private void EjecutarPoliza()
         {
+            Cursor = Cursors.WaitCursor;
+
             if (validaPolizas())
             {
                 string[] EjercicioPeriodo = ((ListItem)cmbEjercicioPeriodo.SelectedItem).Texto.Split('-');
@@ -647,19 +644,22 @@ namespace SATeC.Polizas
                 }
                 else
                     if (TipoSolicitud.Equals("DE") || TipoSolicitud.Equals("CO"))
-                    {
-                        NumTramite = txtNumeroTramite.Text.Trim();
-                    }
+                {
+                    NumTramite = txtNumeroTramite.Text.Trim();
+                }
 
                 if (DataBaseSQL.RegistrarPoliza(General.ID_SociedadSeleccionada, Ejercicio, Periodo, TipoSolicitud, NumOrden, NumTramite, General.UsuarioActual.ID, dtPolizaOrder))
                 {
                     General.muestraMensaje("Los datos de las Pólizas se han guardado con exito.");
+                    this.Close();
                 }
                 else
                 {
                     General.muestraMensaje("Ocurrio un error al tratar de guardar los datos de las Pólizas: " + DataBaseSQL.Error);
-                }                
+                }
             }
+           
+            Cursor = Cursors.Default;
         }
 
         #region Nueva Implementacion
@@ -795,6 +795,45 @@ namespace SATeC.Polizas
             inputString = replace_u_Accents.Replace(inputString, "u");
 
             return inputString;
+        }
+
+        private void txtNumeroOrden_Leave(object sender, EventArgs e)
+        {
+            ValidaNumeroOrden();
+        }
+        private void txtNumeroTramite_Leave(object sender, EventArgs e)
+        {
+            ValidaNumeroTramite();
+        }
+        private void ValidaNumeroOrden()
+        {
+            if (!string.IsNullOrEmpty(txtNumeroOrden.Text.Trim()))
+            {
+                Match match = Regex.Match(txtNumeroOrden.Text.Trim(), @"[A-Z]{3}[0-9]{7}(/)[0-9]{2}");
+
+                if (!match.Success)
+                {
+                    MessageBox.Show("Número de Orden debe contener: 3 Letras Mayusculas, 7 Digítos, / y 2 Digítos", "SATeC", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNumeroOrden.Text = string.Empty;
+                    txtNumeroOrden.Focus();
+                    return;
+                }
+            }
+        }
+        private void ValidaNumeroTramite()
+        {
+            if (!string.IsNullOrEmpty(txtNumeroTramite.Text.Trim()))
+            {
+                Match match = Regex.Match(txtNumeroTramite.Text.Trim(), @"[A-Z]{2}[0-9]{12}");
+
+                if (!match.Success)
+                {
+                    MessageBox.Show("Número de Trámite debe contener: 2 Letras Mayusculas y 12 Digítos", "SATeC", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNumeroTramite.Text = string.Empty;
+                    txtNumeroTramite.Focus();
+                    return;
+                }
+            }
         }
     }
 }

@@ -1,14 +1,11 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.OleDb;
-using System.IO;
-using Microsoft.VisualBasic.FileIO;
 
 namespace SATeC.Polizas
 {
@@ -25,7 +22,7 @@ namespace SATeC.Polizas
 
         public bool Guardado = false;
 
-        public DataTable dtCatalogoMetodosPagoSAT = new DataTable();
+        public DataTable dtCatalogoMetodosPagoSociedad = new DataTable();
         public DataTable dtCatalogoMonedasSAT = new DataTable();
 
         int totalCodigosMetodosPagoNoValidos = 0;
@@ -308,7 +305,6 @@ namespace SATeC.Polizas
         }
         private void cmdGuardar_Click(object sender, EventArgs e)
         {
-
             Cursor = Cursors.WaitCursor;
             string SQL = string.Empty;
 
@@ -326,8 +322,6 @@ namespace SATeC.Polizas
                     OtrosMetodosPago.Clear();
                 }
             }
-
-            GC.Collect();
 
             Cursor = Cursors.Default;
         }
@@ -425,7 +419,7 @@ namespace SATeC.Polizas
         }
         private void CargarCatalogoMetodosPagoSAT()
         {
-            dtCatalogoMetodosPagoSAT = Database.ExecuteDataTable("SATeC_ObtenerCatMetodosPago");
+            dtCatalogoMetodosPagoSociedad = Database.ExecuteDataTable("SATeC_ObtenerMetodosPagoSociedad");
         }
         private void CargarCatalogoMonedasSAT()
         {
@@ -435,7 +429,7 @@ namespace SATeC.Polizas
         {
             bool Existe = false;
 
-            DataRow[] drMetodosPago = dtCatalogoMetodosPagoSAT.Select("clave='" + clave + "' ");
+            DataRow[] drMetodosPago = dtCatalogoMetodosPagoSociedad.Select("claveSociedad='" + clave + "' ");
 
             if (drMetodosPago.Count() > 0)
                 Existe = true;

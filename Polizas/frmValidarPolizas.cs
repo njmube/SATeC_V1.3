@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SATeC.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
@@ -7,11 +8,10 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
-using SATeC.Modelos;
-using System.Diagnostics;
 
-namespace SATeC.Polizas {
-	public partial class frmValidarPolizas : Form {
+namespace SATeC.Polizas
+{
+    public partial class frmValidarPolizas : Form {
 
 		public TipoFuncionalidadPolizas FuncionalidadPolizas { get; set; }
 
@@ -34,7 +34,7 @@ namespace SATeC.Polizas {
         List<TransferenciasDTO> listTransferencias = new List<TransferenciasDTO>();
         List<OtroMetodosPagoDTO> listOtrosMetodosPago = new List<OtroMetodosPagoDTO>();
 
-        Polizas polizaGlobal = new Polizas();
+        SATeC.PolizasPeriodoV13.Polizas polizaGlobal = new SATeC.PolizasPeriodoV13.Polizas();
 
 		public frmValidarPolizas() {
 			InitializeComponent();
@@ -556,7 +556,7 @@ namespace SATeC.Polizas {
                 
                 polizaGlobal.Version = Database.obtenerDato("select valor from SATeC_Parametrizacion where clave = 'VERSIONXML' AND activo = 1");
                 polizaGlobal.RFC = General.RFC_SociedadSeleccionada.Trim();
-                polizaGlobal.Mes = Periodo.Substring(0, 2);
+                polizaGlobal.Mes = Tools.GetCode<SATeC.PolizasPeriodoV13.PolizasMes>(Periodo.Substring(0, 2));
                 polizaGlobal.Anio = int.Parse(Ejercicio);
                 polizaGlobal.TipoSolicitud = TipoSolicitud;
 
@@ -670,7 +670,7 @@ namespace SATeC.Polizas {
                 //watch.Start();
 
                 polizaGlobal.Poliza = (from pp in listPolizas
-                                       select new PolizasPoliza()
+                                       select new SATeC.PolizasPeriodoV13.PolizasPoliza()
                                        {
                                            NumUnIdenPol = pp.Numero_Poliza,
                                            Fecha = DateTime.ParseExact(pp.Fecha_Poliza, "dd/MM/yyyy", cultureinfo),
@@ -678,7 +678,7 @@ namespace SATeC.Polizas {
                                            Transaccion =
                                                            (from pt in listTransacciones
                                                             where pt.Numero_Poliza == pp.Numero_Poliza
-                                                            select new PolizasPolizaTransaccion()
+                                                            select new SATeC.PolizasPeriodoV13.PolizasPolizaTransaccion()
                                                             {   
                                                                 NumCta = pt.Cuenta,
                                                                 DesCta = pt.DesCta,
@@ -690,12 +690,12 @@ namespace SATeC.Polizas {
                                                                            (
                                                                                from cn in listComprobantesNacionales
                                                                                where cn.Numero_Poliza == pt.Numero_Poliza && cn.Numero_Cuenta == pt.Cuenta && (!string.IsNullOrEmpty(cn.Clave) ? cn.Clave == pt.Concepto : true)
-                                                                               select new PolizasPolizaTransaccionCompNal()
+                                                                               select new SATeC.PolizasPeriodoV13.PolizasPolizaTransaccionCompNal()
                                                                                {
                                                                                    UUID_CFDI = cn.UUID_CFDI,
                                                                                    RFC = cn.RFC,
                                                                                    MontoTotal = cn.MontoTotal,
-                                                                                   Moneda = cn.Moneda,
+                                                                                   Moneda = cn.Moneda, //(SATeC.PolizasPeriodoV13.c_Moneda)Enum.Parse(typeof(SATeC.PolizasPeriodoV13.c_Moneda), cn.Moneda),
                                                                                    TipCamb = cn.TipCamb,
                                                                                    TipCambSpecified = true
                                                                                }
@@ -704,11 +704,11 @@ namespace SATeC.Polizas {
                                                                                 (
                                                                                     from cno in listComprobantesNacionalesOtros
                                                                                     where cno.Numero_Poliza == pt.Numero_Poliza && cno.Numero_Cuenta == pt.Cuenta && (!string.IsNullOrEmpty(cno.Clave) ? cno.Clave == pt.Concepto : true)
-                                                                                    select new PolizasPolizaTransaccionCompNalOtr()
+                                                                                    select new SATeC.PolizasPeriodoV13.PolizasPolizaTransaccionCompNalOtr()
                                                                                     {
                                                                                         CFD_CBB_NumFol = cno.CFD_CBB_NumFol,
                                                                                         CFD_CBB_Serie = cno.CFD_CBB_Serie,
-                                                                                        Moneda = cno.Moneda,
+                                                                                        Moneda = cno.Moneda, //(SATeC.PolizasPeriodoV13.c_Moneda)Enum.Parse(typeof(SATeC.PolizasPeriodoV13.c_Moneda), cno.Moneda),
                                                                                         MontoTotal = cno.MontoTotal,
                                                                                         RFC = cno.RFC,
                                                                                         TipCamb = cno.TipCamb,
@@ -718,9 +718,9 @@ namespace SATeC.Polizas {
                                                                 CompExt = (
                                                                            from ce in listComprobantesExtranjeros
                                                                            where ce.Numero_Poliza == pt.Numero_Poliza && ce.Numero_Cuenta == pt.Cuenta && (!string.IsNullOrEmpty(ce.Clave) ? ce.Clave == pt.Concepto : true)
-                                                                           select new PolizasPolizaTransaccionCompExt()
+                                                                           select new SATeC.PolizasPeriodoV13.PolizasPolizaTransaccionCompExt()
                                                                            {
-                                                                               Moneda = ce.Moneda,
+                                                                               Moneda = ce.Moneda, //(SATeC.PolizasPeriodoV13.c_Moneda)Enum.Parse(typeof(SATeC.PolizasPeriodoV13.c_Moneda), ce.Moneda),
                                                                                MontoTotal = ce.MontoTotal,
                                                                                NumFactExt = ce.NumFactExt,
                                                                                TaxID = ce.TaxID,
@@ -732,14 +732,14 @@ namespace SATeC.Polizas {
                                                                           (
                                                                              from c in listCheques
                                                                              where c.Numero_Poliza == pt.Numero_Poliza && c.Numero_Cuenta == pt.Cuenta && (!string.IsNullOrEmpty(c.Clave) ? c.Clave == pt.Concepto : true)
-                                                                             select new PolizasPolizaTransaccionCheque()
+                                                                             select new SATeC.PolizasPeriodoV13.PolizasPolizaTransaccionCheque()
                                                                              {
                                                                                  BanEmisExt = c.BanEmisExt,
-                                                                                 BanEmisNal = c.BanEmisNal,
+                                                                                 BanEmisNal = c.BanEmisNal, //Tools.GetCode<SATeC.PolizasPeriodoV13.c_Banco>(c.BanEmisNal),
                                                                                  Benef = c.Benef,
                                                                                  CtaOri = c.CtaOri,
                                                                                  Fecha = DateTime.ParseExact(c.Fecha, "dd/MM/yyyy", cultureinfo),
-                                                                                 Moneda = c.Moneda,
+                                                                                 Moneda = c.Moneda, //(SATeC.PolizasPeriodoV13.c_Moneda)Enum.Parse(typeof(SATeC.PolizasPeriodoV13.c_Moneda), c.Moneda),
                                                                                  Monto = c.Monto,
                                                                                  Num = c.Num,
                                                                                  RFC = c.RFC,
@@ -751,17 +751,17 @@ namespace SATeC.Polizas {
                                                                                (
                                                                                    from t in listTransferencias
                                                                                    where t.Numero_Poliza == pt.Numero_Poliza && t.Numero_Cuenta == pt.Cuenta && ( !string.IsNullOrEmpty(t.Clave) ? t.Clave == pt.Concepto : true )
-                                                                                   select new PolizasPolizaTransaccionTransferencia()
+                                                                                   select new SATeC.PolizasPeriodoV13.PolizasPolizaTransaccionTransferencia()
                                                                                    {
                                                                                        BancoDestExt = t.BancoDestExt,
-                                                                                       BancoDestNal = t.BancoDestNal,
+                                                                                       BancoDestNal = t.BancoDestNal, //Tools.GetCode<SATeC.PolizasPeriodoV13.c_Banco>(t.BancoDestNal),
                                                                                        BancoOriExt = t.BancoOriExt,
-                                                                                       BancoOriNal = t.BancoOriNal,
+                                                                                       BancoOriNal = t.BancoOriNal, //Tools.GetCode<SATeC.PolizasPeriodoV13.c_Banco>(t.BancoOriNal),
                                                                                        Benef = t.Benef,
                                                                                        CtaDest = t.CtaDest,
                                                                                        CtaOri = t.CtaOri,
                                                                                        Fecha = DateTime.ParseExact(t.Fecha, "dd/MM/yyyy", cultureinfo),
-                                                                                       Moneda = t.Moneda,
+                                                                                       Moneda = t.Moneda, //(SATeC.PolizasPeriodoV13.c_Moneda)Enum.Parse(typeof(SATeC.PolizasPeriodoV13.c_Moneda), t.Moneda),
                                                                                        Monto = t.Monto,
                                                                                        RFC = t.RFC,
                                                                                        TipCamb = t.TipCamb,
@@ -772,12 +772,12 @@ namespace SATeC.Polizas {
                                                                   (
                                                                       from o in listOtrosMetodosPago
                                                                       where o.Numero_Poliza == pt.Numero_Poliza && o.Numero_Cuenta == pt.Cuenta && (!string.IsNullOrEmpty(o.Clave) ? o.Clave == pt.Concepto : true)
-                                                                      select new PolizasPolizaTransaccionOtrMetodoPago()
+                                                                      select new SATeC.PolizasPeriodoV13.PolizasPolizaTransaccionOtrMetodoPago()
                                                                       {
                                                                           Benef = o.Benef,
                                                                           Fecha = DateTime.ParseExact(o.Fecha, "dd/MM/yyyy", cultureinfo),
-                                                                          MetPagoPol = o.MetPagoPol,
-                                                                          Moneda = o.Moneda,
+                                                                          MetPagoPol = o.MetPagoPol, //Tools.GetCode<SATeC.PolizasPeriodoV13.c_MetPagos>(o.MetPagoPol),
+                                                                          Moneda = o.Moneda, //(SATeC.PolizasPeriodoV13.c_Moneda)Enum.Parse(typeof(SATeC.PolizasPeriodoV13.c_Moneda), o.Moneda),
                                                                           Monto = o.Monto,
                                                                           RFC = o.RFC,
                                                                           TipCamb = o.TipCamb,
@@ -796,7 +796,7 @@ namespace SATeC.Polizas {
 
                 GC.Collect();
 
-                XmlSerializer ser = new XmlSerializer(typeof(Polizas));
+                XmlSerializer ser = new XmlSerializer(typeof(SATeC.PolizasPeriodoV13.Polizas));
                 StringBuilder sb = new StringBuilder();
 
                 using (XmlWriter writer = XmlWriter.Create(sb, new XmlWriterSettings()
@@ -808,8 +808,8 @@ namespace SATeC.Polizas {
                 {
 
                     XmlSerializerNamespaces xmlNameSpace = new XmlSerializerNamespaces();
-                    xmlNameSpace.Add("PLZ", "www.sat.gob.mx/esquemas/ContabilidadE/1_1/PolizasPeriodo");
-                    xmlNameSpace.Add("schemaLocation", "www.sat.gob.mx/esquemas/ContabilidadE/1_1/PolizasPeriodo http://www.sat.gob.mx/esquemas/ContabilidadE/1_1/PolizasPeriodo/PolizasPeriodo_1_1.xsd");
+                    xmlNameSpace.Add("PLZ", "www.sat.gob.mx/esquemas/ContabilidadE/1_3/PolizasPeriodo");
+                    xmlNameSpace.Add("schemaLocation", "http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/PolizasPeriodo http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/PolizasPeriodo/PolizasPeriodo_1_3.xsd");
                     xmlNameSpace.Add("xsi", "http://www.w3.org/2001/XMLSchema-instance");
 
                     ser.Serialize(writer, polizaGlobal, xmlNameSpace);
@@ -828,7 +828,7 @@ namespace SATeC.Polizas {
             catch (Exception ex)
             {
                 XMLToDatabase = string.Empty;
-                MessageBox.Show("No se pudo convertir al formato XML. Intente mas tarde.");
+                MessageBox.Show("No se pudo convertir al formato XML. Intente mas tarde.", "SATeC", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LogErrores.WriteLog("Error en el metodo generarArchivoXMLPolizas", ex);
                 return false;
             }
@@ -867,8 +867,5 @@ namespace SATeC.Polizas {
 				this.Close();
 			}
         }
-
-       
 	}
-
 }

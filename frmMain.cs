@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SATeC
@@ -206,6 +202,12 @@ namespace SATeC
             {
                 General.muestraMensaje("Ocurrio un error al tratar de borrar la información de la base de datos.\n" + Database.Error);
             }
+        }
+        private void mnuAdministracion_mapeoMetodosPago_Click(object sender, EventArgs e)
+        {
+            Administracion.frmMapeoMetodosPago mapeoMetodosPago = new Administracion.frmMapeoMetodosPago();
+            mapeoMetodosPago.MdiParent = this;
+            mapeoMetodosPago.Show();
         }
 
         #endregion

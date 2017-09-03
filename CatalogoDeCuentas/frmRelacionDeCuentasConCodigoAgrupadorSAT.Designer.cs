@@ -207,29 +207,30 @@
             // 
             // mnuCuentasSociedad
             // 
+            this.mnuCuentasSociedad.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuCuentasSociedad.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuCuentasSociedad_RelacionarCuentaSAT,
             this.mnuSeparator,
             this.mnuCuentasSociedad_EliminarRelacionCuentasSAT});
             this.mnuCuentasSociedad.Name = "cmsMenuCuentasSociedad";
-            this.mnuCuentasSociedad.Size = new System.Drawing.Size(270, 58);
+            this.mnuCuentasSociedad.Size = new System.Drawing.Size(269, 58);
             // 
             // mnuCuentasSociedad_RelacionarCuentaSAT
             // 
             this.mnuCuentasSociedad_RelacionarCuentaSAT.Name = "mnuCuentasSociedad_RelacionarCuentaSAT";
-            this.mnuCuentasSociedad_RelacionarCuentaSAT.Size = new System.Drawing.Size(269, 24);
+            this.mnuCuentasSociedad_RelacionarCuentaSAT.Size = new System.Drawing.Size(268, 24);
             this.mnuCuentasSociedad_RelacionarCuentaSAT.Text = "Relacionar Cuenta SAT";
             this.mnuCuentasSociedad_RelacionarCuentaSAT.Click += new System.EventHandler(this.mnuCuentasSociedad_RelacionarCuentaSAT_Click);
             // 
             // mnuSeparator
             // 
             this.mnuSeparator.Name = "mnuSeparator";
-            this.mnuSeparator.Size = new System.Drawing.Size(266, 6);
+            this.mnuSeparator.Size = new System.Drawing.Size(265, 6);
             // 
             // mnuCuentasSociedad_EliminarRelacionCuentasSAT
             // 
             this.mnuCuentasSociedad_EliminarRelacionCuentasSAT.Name = "mnuCuentasSociedad_EliminarRelacionCuentasSAT";
-            this.mnuCuentasSociedad_EliminarRelacionCuentasSAT.Size = new System.Drawing.Size(269, 24);
+            this.mnuCuentasSociedad_EliminarRelacionCuentasSAT.Size = new System.Drawing.Size(268, 24);
             this.mnuCuentasSociedad_EliminarRelacionCuentasSAT.Text = "Eliminar relación Cuenta SAT";
             this.mnuCuentasSociedad_EliminarRelacionCuentasSAT.Click += new System.EventHandler(this.mnuCuentasSociedad_EliminarRelacionCuentasSAT_Click);
             // 
@@ -246,7 +247,7 @@
             this.cmdConvertirXML.ForeColor = System.Drawing.Color.White;
             this.cmdConvertirXML.Image = global::SATeC.Properties.Resources.Convertir;
             this.cmdConvertirXML.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdConvertirXML.Location = new System.Drawing.Point(696, 455);
+            this.cmdConvertirXML.Location = new System.Drawing.Point(696, 448);
             this.cmdConvertirXML.Name = "cmdConvertirXML";
             this.cmdConvertirXML.Size = new System.Drawing.Size(272, 40);
             this.cmdConvertirXML.TabIndex = 25;

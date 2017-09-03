@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace SATeC
 {
@@ -49,16 +46,23 @@ namespace SATeC
         }
         private static int ExecuteNonQueryGetIdentityWithTransaction(SqlConnection conn, SqlTransaction tran, string queryInsert, string querySelect)
         {
+            try
+            {
+                SqlCommand cmd = new SqlCommand(queryInsert, conn, tran);
 
-            SqlCommand cmd = new SqlCommand(queryInsert, conn, tran);
+                cmd.ExecuteNonQuery();
 
-            cmd.ExecuteNonQuery();
+                cmd = new SqlCommand(querySelect, conn, tran);
 
-            cmd = new SqlCommand(querySelect, conn, tran);
+                int idPoliza = (int)cmd.ExecuteScalar();
 
-            int idPoliza = (int)cmd.ExecuteScalar();
-
-            return idPoliza;
+                return idPoliza;
+            }
+            catch (Exception ex)
+            {
+                LogErrores.WriteLog("Error en el metodo ExecuteNonQueryGetIdentityWithTransaction", ex);
+                return 0;
+            }
         }
         public static bool ExecuteBulkCopyWithTransaction(SqlConnection conn, SqlTransaction tran, string DestinationTableName, DataTable table)
         {
@@ -76,6 +80,7 @@ namespace SATeC
             }
             catch (Exception ex)
             {
+                LogErrores.WriteLog("Error en el metodo ExecuteBulkCopyWithTransaction", ex);
                 Error = "Error <<ExecuteBulkCopyWithTransaction>>: " + ex.ToString();
                 bReturn = false;
             }
@@ -84,53 +89,61 @@ namespace SATeC
         }
         public static bool RegistrarPoliza(int idSociedad, string ejercicio, string periodo, string TipoSolicitud, string NumOrden, string NumTramite, int Usuario, DataTable dtPolizas)
         {
-            using (SqlConnection conn = new System.Data.SqlClient.SqlConnection(getConnectionString()))
+            try
             {
-                conn.Open();
-
-                using (SqlTransaction tran = conn.BeginTransaction())
+                using (SqlConnection conn = new System.Data.SqlClient.SqlConnection(getConnectionString()))
                 {
-                    string queryInsert = string.Format("INSERT INTO SATeC_Polizas (ID_Sociedad, Ejercicio, Periodo, Fecha_Importacion, ID_Usuario_Importacion, TipoSolicitud, NumOrden, NumTramite) VALUES({0},'{1}','{2}',{3},{4},'{5}','{6}','{7}') ", 
-                                                                                    idSociedad, ejercicio, periodo, "GETDATE()", Usuario,                       TipoSolicitud, NumOrden, NumTramite);
-                    string querySelect = "SELECT ID_Poliza FROM SATeC_Polizas WHERE @@ROWCOUNT > 0 and ID_Poliza = SCOPE_IDENTITY()";
+                    conn.Open();
 
-                    int idIdentity = ExecuteNonQueryGetIdentityWithTransaction(conn, tran, queryInsert, querySelect);
-
-                    if (idIdentity > 0)
+                    using (SqlTransaction tran = conn.BeginTransaction())
                     {
-                        DataView viewPolizas = new DataView(dtPolizas);
-                        viewPolizas.Sort = "numPoliza, secuencia";
-                        DataTable dtPolizasPolizas = viewPolizas.ToTable(false, "idPoliza", "numPoliza", "fechaPoliza", "conceptoOperacion");
+                        string queryInsert = string.Format("INSERT INTO SATeC_Polizas (ID_Sociedad, Ejercicio, Periodo, Fecha_Importacion, ID_Usuario_Importacion, TipoSolicitud, NumOrden, NumTramite) VALUES({0},'{1}','{2}',{3},{4},'{5}','{6}','{7}') ",
+                                                                                        idSociedad, ejercicio, periodo, "GETDATE()", Usuario, TipoSolicitud, NumOrden, NumTramite);
+                        string querySelect = "SELECT ID_Poliza FROM SATeC_Polizas WHERE @@ROWCOUNT > 0 and ID_Poliza = SCOPE_IDENTITY()";
 
-                        foreach (DataRow row in dtPolizasPolizas.Rows)
+                        int idIdentity = ExecuteNonQueryGetIdentityWithTransaction(conn, tran, queryInsert, querySelect);
+
+                        if (idIdentity > 0)
                         {
-                            row["idPoliza"] = idIdentity;
-                        }
-
-                        bool registroPolizaPoliza = ExecuteBulkCopyWithTransaction(conn, tran, "SATeC_Polizas_Polizas", dtPolizasPolizas);
-
-                        if (registroPolizaPoliza)
-                        {
+                            DataView viewPolizas = new DataView(dtPolizas);
                             viewPolizas.Sort = "numPoliza, secuencia";
-                            DataTable dtPolizasTransacciones = viewPolizas.ToTable(false, "idPoliza", "numPoliza", "secuencia", "numCuenta", "descCuenta", "concepto", "debe", "haber");
+                            DataTable dtPolizasPolizas = viewPolizas.ToTable(false, "idPoliza", "numPoliza", "fechaPoliza", "conceptoOperacion");
 
-                            foreach (DataRow row in dtPolizasTransacciones.Rows)
+                            foreach (DataRow row in dtPolizasPolizas.Rows)
                             {
                                 row["idPoliza"] = idIdentity;
-
-                                if (String.IsNullOrEmpty(row["debe"].ToString()))
-                                    row["debe"] = 0.00;
-
-                                if (String.IsNullOrEmpty(row["haber"].ToString()))
-                                    row["haber"] = 0.00;
                             }
 
-                            bool registroPolizaTransacciones = ExecuteBulkCopyWithTransaction(conn, tran, "SATeC_Polizas_Transacciones", dtPolizasTransacciones);
+                            bool registroPolizaPoliza = ExecuteBulkCopyWithTransaction(conn, tran, "SATeC_Polizas_Polizas", dtPolizasPolizas);
 
-                            if (registroPolizaTransacciones)
+                            if (registroPolizaPoliza)
                             {
-                                tran.Commit();
-                                return true;
+                                viewPolizas.Sort = "numPoliza, secuencia";
+                                DataTable dtPolizasTransacciones = viewPolizas.ToTable(false, "idPoliza", "numPoliza", "secuencia", "numCuenta", "descCuenta", "concepto", "debe", "haber");
+
+                                foreach (DataRow row in dtPolizasTransacciones.Rows)
+                                {
+                                    row["idPoliza"] = idIdentity;
+
+                                    if (String.IsNullOrEmpty(row["debe"].ToString()))
+                                        row["debe"] = 0.00;
+
+                                    if (String.IsNullOrEmpty(row["haber"].ToString()))
+                                        row["haber"] = 0.00;
+                                }
+
+                                bool registroPolizaTransacciones = ExecuteBulkCopyWithTransaction(conn, tran, "SATeC_Polizas_Transacciones", dtPolizasTransacciones);
+
+                                if (registroPolizaTransacciones)
+                                {
+                                    tran.Commit();
+                                    return true;
+                                }
+                                else
+                                {
+                                    tran.Rollback();
+                                    return false;
+                                }
                             }
                             else
                             {
@@ -143,128 +156,168 @@ namespace SATeC
                             tran.Rollback();
                             return false;
                         }
-                    }
-                    else
-                    {
-                        tran.Rollback();
-                        return false;
-                    }
-                } //Fin de SqlTransaction.
+                    } //Fin de SqlTransaction.
+                }
+            }
+            catch (Exception ex)
+            {
+                LogErrores.WriteLog("Error en el metodo RegistrarPoliza", ex);
+                return false;
             }
         }
         public static bool RegistrarComprobantesNacionales(DataTable dtComprobantes)
         {
-            using (SqlConnection conn = new System.Data.SqlClient.SqlConnection(getConnectionString()))
+            try
             {
-                conn.Open();
-
-                using (SqlTransaction tran = conn.BeginTransaction())
+                using (SqlConnection conn = new System.Data.SqlClient.SqlConnection(getConnectionString()))
                 {
-                    bool registroComprobantes = ExecuteBulkCopyWithTransaction(conn, tran, "SATeC_Polizas_Comprobantes_Nacional", dtComprobantes);
+                    conn.Open();
 
-                    if (registroComprobantes)
+                    using (SqlTransaction tran = conn.BeginTransaction())
                     {
-                        tran.Commit();
-                        return true;
-                    }
-                    else
-                    {
-                        tran.Rollback();
-                        return false;
+                        bool registroComprobantes = ExecuteBulkCopyWithTransaction(conn, tran, "SATeC_Polizas_Comprobantes_Nacional", dtComprobantes);
+
+                        if (registroComprobantes)
+                        {
+                            tran.Commit();
+                            return true;
+                        }
+                        else
+                        {
+                            tran.Rollback();
+                            return false;
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                LogErrores.WriteLog("Error en el metodo RegistrarComprobantesNacionales", ex);
+                return false;
             }
         }
         public static bool RegistrarComprobantesNacionalesOtros(DataTable dtComprobantesOtros)
         {
-            using (SqlConnection conn = new System.Data.SqlClient.SqlConnection(getConnectionString()))
+            try
             {
-                conn.Open();
-
-                using (SqlTransaction tran = conn.BeginTransaction())
+                using (SqlConnection conn = new System.Data.SqlClient.SqlConnection(getConnectionString()))
                 {
-                    bool registroComprobantesOtros = ExecuteBulkCopyWithTransaction(conn, tran, "SATeC_Polizas_Comprobantes_Nacional_Otros", dtComprobantesOtros);
+                    conn.Open();
 
-                    if (registroComprobantesOtros)
+                    using (SqlTransaction tran = conn.BeginTransaction())
                     {
-                        tran.Commit();
-                        return true;
-                    }
-                    else
-                    {
-                        tran.Rollback();
-                        return false;
+                        bool registroComprobantesOtros = ExecuteBulkCopyWithTransaction(conn, tran, "SATeC_Polizas_Comprobantes_Nacional_Otros", dtComprobantesOtros);
+
+                        if (registroComprobantesOtros)
+                        {
+                            tran.Commit();
+                            return true;
+                        }
+                        else
+                        {
+                            tran.Rollback();
+                            return false;
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                LogErrores.WriteLog("Error en el metodo RegistrarComprobantesNacionalesOtros", ex);
+                return false;
             }
         }
         public static bool RegistrarComprobantesExtranjeros(DataTable dtComprobantesExtranjeros)
         {
-            using (SqlConnection conn = new System.Data.SqlClient.SqlConnection(getConnectionString()))
+            try
             {
-                conn.Open();
-
-                using (SqlTransaction tran = conn.BeginTransaction())
+                using (SqlConnection conn = new System.Data.SqlClient.SqlConnection(getConnectionString()))
                 {
-                    bool registroComprobantesExtranjeros = ExecuteBulkCopyWithTransaction(conn, tran, "SATeC_Polizas_Comprobantes_Extranjeros", dtComprobantesExtranjeros);
+                    conn.Open();
 
-                    if (registroComprobantesExtranjeros)
+                    using (SqlTransaction tran = conn.BeginTransaction())
                     {
-                        tran.Commit();
-                        return true;
-                    }
-                    else
-                    {
-                        tran.Rollback();
-                        return false;
+                        bool registroComprobantesExtranjeros = ExecuteBulkCopyWithTransaction(conn, tran, "SATeC_Polizas_Comprobantes_Extranjeros", dtComprobantesExtranjeros);
+
+                        if (registroComprobantesExtranjeros)
+                        {
+                            tran.Commit();
+                            return true;
+                        }
+                        else
+                        {
+                            tran.Rollback();
+                            return false;
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                LogErrores.WriteLog("Error en el metodo RegistrarComprobantesExtranjeros", ex);
+                return false;
             }
         }
         public static bool RegistrarMetodosPago(DataTable dtMetodosPago)
         {
-            using (SqlConnection conn = new System.Data.SqlClient.SqlConnection(getConnectionString()))
+            try
             {
-                conn.Open();
-
-                using (SqlTransaction tran = conn.BeginTransaction())
+                using (SqlConnection conn = new System.Data.SqlClient.SqlConnection(getConnectionString()))
                 {
-                    bool registroMetodosPago = ExecuteBulkCopyWithTransaction(conn, tran, "SATeC_Polizas_OtroMetodoPago", dtMetodosPago);
+                    conn.Open();
 
-                    if (registroMetodosPago)
+                    using (SqlTransaction tran = conn.BeginTransaction())
                     {
-                        tran.Commit();
-                        return true;
-                    }
-                    else
-                    {
-                        tran.Rollback();
-                        return false;
+                        bool registroMetodosPago = ExecuteBulkCopyWithTransaction(conn, tran, "SATeC_Polizas_OtroMetodoPago", dtMetodosPago);
+
+                        if (registroMetodosPago)
+                        {
+                            tran.Commit();
+                            return true;
+                        }
+                        else
+                        {
+                            tran.Rollback();
+                            return false;
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                LogErrores.WriteLog("Error en el metodo RegistrarMetodosPago", ex);
+                return false;
             }
         }
         public static bool RegistrarTransferencias(DataTable dtTransferencias)
         {
-            using (SqlConnection conn = new System.Data.SqlClient.SqlConnection(getConnectionString()))
+            try
             {
-                conn.Open();
-
-                using (SqlTransaction tran = conn.BeginTransaction())
+                using (SqlConnection conn = new System.Data.SqlClient.SqlConnection(getConnectionString()))
                 {
-                    bool registroTransferencias = ExecuteBulkCopyWithTransaction(conn, tran, "SATeC_Polizas_Transferencias", dtTransferencias);
+                    conn.Open();
 
-                    if (registroTransferencias)
+                    using (SqlTransaction tran = conn.BeginTransaction())
                     {
-                        tran.Commit();
-                        return true;
-                    }
-                    else
-                    {
-                        tran.Rollback();
-                        return false;
+                        bool registroTransferencias = ExecuteBulkCopyWithTransaction(conn, tran, "SATeC_Polizas_Transferencias", dtTransferencias);
+
+                        if (registroTransferencias)
+                        {
+                            tran.Commit();
+                            return true;
+                        }
+                        else
+                        {
+                            tran.Rollback();
+                            return false;
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                LogErrores.WriteLog("Error en el metodo RegistrarTransferencias", ex);
+                return false;
             }
         }
 
@@ -289,10 +342,9 @@ namespace SATeC
             }
             catch (Exception ex)
             {
+                LogErrores.WriteLog(string.Format("Error en el metodo ExecuteNonQuery con el script {0}", SQL), ex);
                 throw (ex);
             }
         }
-
     }
-        
 }

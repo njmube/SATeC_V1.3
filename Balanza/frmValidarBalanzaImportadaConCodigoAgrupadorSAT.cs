@@ -1,21 +1,17 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
+using System.Data.OleDb;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.OleDb;
-using AdvancedDataGridView;
-using System.IO;
 using System.Xml;
-using System.Xml.Linq;
 using System.Xml.Serialization;
-using Microsoft.Reporting.WinForms;
 
-namespace SATeC.Balanza {
-	public partial class frmValidarBalanzaImportadaConCodigoAgrupadorSAT : Form {
+namespace SATeC.Balanza
+{
+    public partial class frmValidarBalanzaImportadaConCodigoAgrupadorSAT : Form {
 
 		public string IDBalanza { get; set; }
 		public string Ejercicio { get; set; }
@@ -146,25 +142,20 @@ namespace SATeC.Balanza {
 			drBalanza.Close();
 			drBalanza.Dispose();
 
-            Balanza balanza = new Balanza();
+            SATeC.BalanzaComprobacionV13.Balanza balanza = new SATeC.BalanzaComprobacionV13.Balanza();
             balanza.Version = Database.obtenerDato("select valor from SATeC_Parametrizacion where clave = 'VERSIONXML' AND activo = 1");
             balanza.RFC = General.RFC_SociedadSeleccionada.Trim();
-            balanza.Mes = Periodo.Substring(0, 2);
+            balanza.Mes = Tools.GetCode<SATeC.BalanzaComprobacionV13.BalanzaMes>(Periodo.Substring(0, 2));
             balanza.Anio = int.Parse(Ejercicio);
             balanza.TipoEnvio = TipoEnvio;
-
-            if (TipoEnvio.Equals("C"))
-            {
-                balanza.TipoEnvio = "N";
-                balanza.FechaModBalSpecified = true;
-                balanza.FechaModBal = FechaModBal.Value;
-            }
-
-            List<BalanzaCtas> listaCuentas = new List<BalanzaCtas>();
+            balanza.FechaModBalSpecified = true;
+            balanza.FechaModBal = FechaModBal.Value;
+            
+            List<SATeC.BalanzaComprobacionV13.BalanzaCtas> listaCuentas = new List<SATeC.BalanzaComprobacionV13.BalanzaCtas>();
 
 			foreach(DataGridViewRow dgvrCuentaBalanza in dgvBalanza.Rows) {
 
-                BalanzaCtas detalleBalanza = new BalanzaCtas();
+                SATeC.BalanzaComprobacionV13.BalanzaCtas detalleBalanza = new SATeC.BalanzaComprobacionV13.BalanzaCtas();
                 detalleBalanza.NumCta = dgvrCuentaBalanza.Cells["BalanzaCuenta"].Value.ToString();
                 detalleBalanza.SaldoIni = decimal.Parse(dgvrCuentaBalanza.Cells["BalanzaSaldoInicial"].Value.ToString());
                 detalleBalanza.Debe = decimal.Parse(dgvrCuentaBalanza.Cells["BalanzaCargos"].Value.ToString());
@@ -176,7 +167,7 @@ namespace SATeC.Balanza {
 
             balanza.Ctas = listaCuentas.ToArray();
 
-            XmlSerializer ser = new XmlSerializer(typeof(Balanza));
+            XmlSerializer ser = new XmlSerializer(typeof(SATeC.BalanzaComprobacionV13.Balanza));
             StringBuilder sb = new StringBuilder();
 
             using (XmlWriter writer = XmlWriter.Create(sb, new XmlWriterSettings()
@@ -188,8 +179,8 @@ namespace SATeC.Balanza {
             {
 
                 XmlSerializerNamespaces xmlNameSpace = new XmlSerializerNamespaces();
-                xmlNameSpace.Add("BCE", "www.sat.gob.mx/esquemas/ContabilidadE/1_1/BalanzaComprobacion");
-                xmlNameSpace.Add("schemaLocation", "www.sat.gob.mx/esquemas/ContabilidadE/1_1/BalanzaComprobacion http://www.sat.gob.mx/esquemas/ContabilidadE/1_1/BalanzaComprobacion/BalanzaComprobacion_1_1.xsd");
+                xmlNameSpace.Add("BCE", "www.sat.gob.mx/esquemas/ContabilidadE/1_3/BalanzaComprobacion");
+                xmlNameSpace.Add("schemaLocation", "http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/BalanzaComprobacion http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/BalanzaComprobacion/BalanzaComprobacion_1_3.xsd");
                 xmlNameSpace.Add("xsi", "http://www.w3.org/2001/XMLSchema-instance");
 
                 ser.Serialize(writer, balanza, xmlNameSpace);

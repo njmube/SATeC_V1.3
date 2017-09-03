@@ -160,6 +160,12 @@
     <Compile Include="Administracion\frmEjerciciosPeriodos.Designer.cs">
       <DependentUpon>frmEjerciciosPeriodos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\frmMapeoMetodosPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\frmMapeoMetodosPago.Designer.cs">
+      <DependentUpon>frmMapeoMetodosPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\frmSociedades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -386,6 +392,7 @@
     </Compile>
     <Compile Include="SelladoSAT.cs" />
     <Compile Include="Serialization.cs" />
+    <Compile Include="Tools.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Win32.cs" />
     <Compile Include="XSD\BalanzaComprobacion_1_1.cs">
@@ -396,6 +403,18 @@
     </Compile>
     <Compile Include="XSD\PolizasPeriodo_1_1.cs">
       <DependentUpon>PolizasPeriodo_1_1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="XSD\V1.3\BalanzaComprobacion_1_3.cs">
+      <DependentUpon>BalanzaComprobacion_1_3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="XSD\V1.3\CatalogoCuentas_1_3.cs">
+      <DependentUpon>CatalogoCuentas_1_3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="XSD\V1.3\PolizasPeriodo_1_3.cs">
+      <DependentUpon>PolizasPeriodo_1_3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="XSD\V1.3\SelloDigitalContElec.cs">
+      <DependentUpon>SelloDigitalContElec.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Administracion\frmCargaMapeoCuentas.resx">
       <DependentUpon>frmCargaMapeoCuentas.cs</DependentUpon>
@@ -420,6 +439,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\frmEjerciciosPeriodos.resx">
       <DependentUpon>frmEjerciciosPeriodos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\frmMapeoMetodosPago.resx">
+      <DependentUpon>frmMapeoMetodosPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\frmSociedades.resx">
       <DependentUpon>frmSociedades.cs</DependentUpon>
@@ -592,6 +614,27 @@
     <None Include="XSD\PolizasPeriodo_1_1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="XSD\V1.3\AuxiliarCtas_1_3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="XSD\V1.3\AuxiliarFolios_1_3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="XSD\V1.3\BalanzaComprobacion_1_3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="XSD\V1.3\CatalogoCuentas_1_3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="XSD\V1.3\CatalogosParaEsqContE_1_3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="XSD\V1.3\PolizasPeriodo_1_3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="XSD\V1.3\SelloDigitalContElec.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Aceptar_32x32.png" />
@@ -662,6 +705,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="XLST\V1.1\BalanzaComprobacion_1_1.xslt" />
+    <Content Include="XLST\V1.1\CatalogoCuentas_1_1.xslt" />
+    <Content Include="XLST\V1.1\PolizasPeriodo_1_1.xslt" />
+    <Content Include="XLST\V1.2\AuxiliarCtas_1_2.xslt" />
+    <Content Include="XLST\V1.2\AuxiliarFolios_1_2.xslt" />
+    <Content Include="XLST\V1.2\BalanzaComprobacion_1_2.xslt" />
+    <Content Include="XLST\V1.2\CatalogoCuentas_1_2.xslt" />
+    <Content Include="XLST\V1.2\PolizasPeriodo_1_2.xslt" />
     <EmbeddedResource Include="Microsoft.reportviewer.common.dll" />
     <EmbeddedResource Include="Microsoft.ReportViewer.WinForms.dll" />
     <Content Include="Resources\loading.gif" />

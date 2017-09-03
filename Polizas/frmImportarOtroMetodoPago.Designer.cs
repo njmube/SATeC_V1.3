@@ -107,9 +107,9 @@
             this.cmdCancelar.ForeColor = System.Drawing.Color.White;
             this.cmdCancelar.Image = global::SATeC.Properties.Resources.Cancelar_32x32;
             this.cmdCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdCancelar.Location = new System.Drawing.Point(533, 446);
+            this.cmdCancelar.Location = new System.Drawing.Point(561, 446);
             this.cmdCancelar.Name = "cmdCancelar";
-            this.cmdCancelar.Size = new System.Drawing.Size(105, 40);
+            this.cmdCancelar.Size = new System.Drawing.Size(121, 40);
             this.cmdCancelar.TabIndex = 42;
             this.cmdCancelar.Text = "&Cancelar";
             this.cmdCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -130,9 +130,9 @@
             this.cmdGuardar.ForeColor = System.Drawing.Color.White;
             this.cmdGuardar.Image = global::SATeC.Properties.Resources.Guardar_32x32;
             this.cmdGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdGuardar.Location = new System.Drawing.Point(377, 446);
+            this.cmdGuardar.Location = new System.Drawing.Point(405, 446);
             this.cmdGuardar.Name = "cmdGuardar";
-            this.cmdGuardar.Size = new System.Drawing.Size(100, 40);
+            this.cmdGuardar.Size = new System.Drawing.Size(122, 40);
             this.cmdGuardar.TabIndex = 41;
             this.cmdGuardar.Text = "&Guardar";
             this.cmdGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -161,12 +161,12 @@
             listViewItem3,
             listViewItem4,
             listViewItem5});
-            this.lstvDescripciones.Location = new System.Drawing.Point(750, 12);
+            this.lstvDescripciones.Location = new System.Drawing.Point(742, 12);
             this.lstvDescripciones.MultiSelect = false;
             this.lstvDescripciones.Name = "lstvDescripciones";
             this.lstvDescripciones.Scrollable = false;
             this.lstvDescripciones.ShowGroups = false;
-            this.lstvDescripciones.Size = new System.Drawing.Size(243, 107);
+            this.lstvDescripciones.Size = new System.Drawing.Size(279, 107);
             this.lstvDescripciones.TabIndex = 39;
             this.lstvDescripciones.UseCompatibleStateImageBehavior = false;
             this.lstvDescripciones.View = System.Windows.Forms.View.Details;
@@ -322,7 +322,7 @@
             this.dgvComprobantes.ShowCellErrors = false;
             this.dgvComprobantes.ShowCellToolTips = false;
             this.dgvComprobantes.ShowEditingIcon = false;
-            this.dgvComprobantes.Size = new System.Drawing.Size(981, 315);
+            this.dgvComprobantes.Size = new System.Drawing.Size(1009, 315);
             this.dgvComprobantes.TabIndex = 44;
             this.dgvComprobantes.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvComprobantes_RowPostPaint);
             // 
@@ -437,7 +437,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
-            this.ClientSize = new System.Drawing.Size(1005, 498);
+            this.ClientSize = new System.Drawing.Size(1033, 498);
             this.Controls.Add(this.dgvComprobantes);
             this.Controls.Add(this.txtPathArchivoComprobantes);
             this.Controls.Add(this.cmdCancelar);

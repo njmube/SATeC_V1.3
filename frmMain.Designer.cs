@@ -39,6 +39,7 @@
             this.mnuAdministracionCatalogoCuentasSAT = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAdministracion_CargaMapeoCuentas = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAdministracion_BorrarBaseDeDatos = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAdministracion_mapeoMetodosPago = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCatalogoDeCuentas = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSAT = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSociedad = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,8 +61,8 @@
             this.mnuPolizas_ConsultarPolizasFormatoXML = new System.Windows.Forms.ToolStripMenuItem();
             this.enviarLasPólizasAlSATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarLasPólizasEnviadasAlSATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTextboxBlank = new System.Windows.Forms.ToolStripTextBox();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTextboxBlank = new System.Windows.Forms.ToolStripTextBox();
             this.lblVersion = new System.Windows.Forms.Label();
             this.picMainBackground = new System.Windows.Forms.PictureBox();
             this.tlsSociedadSeleccionada = new System.Windows.Forms.ToolStrip();
@@ -80,22 +81,23 @@
             // stsMain
             // 
             this.stsMain.AllowMerge = false;
+            this.stsMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.stsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus,
             this.lblFecha,
             this.lblIDUsuario});
-            this.stsMain.Location = new System.Drawing.Point(0, 523);
+            this.stsMain.Location = new System.Drawing.Point(0, 628);
             this.stsMain.Name = "stsMain";
             this.stsMain.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
             this.stsMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.stsMain.Size = new System.Drawing.Size(1029, 24);
+            this.stsMain.Size = new System.Drawing.Size(982, 29);
             this.stsMain.TabIndex = 11;
             // 
             // lblStatus
             // 
             this.lblStatus.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(882, 19);
+            this.lblStatus.Size = new System.Drawing.Size(802, 24);
             this.lblStatus.Spring = true;
             this.lblStatus.Text = "lblStatus";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -105,7 +107,7 @@
             this.lblFecha.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.lblFecha.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(55, 19);
+            this.lblFecha.Size = new System.Drawing.Size(68, 24);
             this.lblFecha.Text = "lblFecha";
             this.lblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -113,7 +115,7 @@
             // 
             this.lblIDUsuario.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.lblIDUsuario.Name = "lblIDUsuario";
-            this.lblIDUsuario.Size = new System.Drawing.Size(75, 19);
+            this.lblIDUsuario.Size = new System.Drawing.Size(95, 24);
             this.lblIDUsuario.Text = "lblIDUsuario";
             // 
             // lblSistema
@@ -123,7 +125,7 @@
             this.lblSistema.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSistema.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.lblSistema.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblSistema.Location = new System.Drawing.Point(941, 0);
+            this.lblSistema.Location = new System.Drawing.Point(896, -2);
             this.lblSistema.Name = "lblSistema";
             this.lblSistema.Size = new System.Drawing.Size(86, 30);
             this.lblSistema.TabIndex = 13;
@@ -134,6 +136,7 @@
             // 
             this.mnuMain.AutoSize = false;
             this.mnuMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
+            this.mnuMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuAdministracion,
             this.mnuCatalogoDeCuentas,
@@ -143,7 +146,7 @@
             this.mnuTextboxBlank});
             this.mnuMain.Location = new System.Drawing.Point(0, 84);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(1029, 32);
+            this.mnuMain.Size = new System.Drawing.Size(982, 32);
             this.mnuMain.TabIndex = 16;
             // 
             // mnuAdministracion
@@ -157,7 +160,8 @@
             this.mnuAdministracion_EjerciciosPeriodos,
             this.mnuAdministracionCatalogoCuentasSAT,
             this.mnuAdministracion_CargaMapeoCuentas,
-            this.mnuAdministracion_BorrarBaseDeDatos});
+            this.mnuAdministracion_BorrarBaseDeDatos,
+            this.mnuAdministracion_mapeoMetodosPago});
             this.mnuAdministracion.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuAdministracion.ForeColor = System.Drawing.Color.White;
             this.mnuAdministracion.Name = "mnuAdministracion";
@@ -168,7 +172,7 @@
             // 
             this.mnuAdministracion_Usuarios.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuAdministracion_Usuarios.Name = "mnuAdministracion_Usuarios";
-            this.mnuAdministracion_Usuarios.Size = new System.Drawing.Size(303, 24);
+            this.mnuAdministracion_Usuarios.Size = new System.Drawing.Size(368, 28);
             this.mnuAdministracion_Usuarios.Text = "Usuarios";
             this.mnuAdministracion_Usuarios.Click += new System.EventHandler(this.mnuAdministracion_Usuarios_Click);
             // 
@@ -176,7 +180,7 @@
             // 
             this.mnuAdministracion_CatalogosCuentas.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuAdministracion_CatalogosCuentas.Name = "mnuAdministracion_CatalogosCuentas";
-            this.mnuAdministracion_CatalogosCuentas.Size = new System.Drawing.Size(303, 24);
+            this.mnuAdministracion_CatalogosCuentas.Size = new System.Drawing.Size(368, 28);
             this.mnuAdministracion_CatalogosCuentas.Text = "Catálogos de Cuentas";
             this.mnuAdministracion_CatalogosCuentas.Click += new System.EventHandler(this.mnuAdministracion_CatalogosCuentas_Click);
             // 
@@ -184,7 +188,7 @@
             // 
             this.mnuAdministracion_CatalogosCuentasAuxiliares.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuAdministracion_CatalogosCuentasAuxiliares.Name = "mnuAdministracion_CatalogosCuentasAuxiliares";
-            this.mnuAdministracion_CatalogosCuentasAuxiliares.Size = new System.Drawing.Size(303, 24);
+            this.mnuAdministracion_CatalogosCuentasAuxiliares.Size = new System.Drawing.Size(368, 28);
             this.mnuAdministracion_CatalogosCuentasAuxiliares.Text = "Catálogos de Cuentas Auxiliares";
             this.mnuAdministracion_CatalogosCuentasAuxiliares.Click += new System.EventHandler(this.mnuAdministracion_CatalogosCuentasAuxiliares_Click);
             // 
@@ -192,7 +196,7 @@
             // 
             this.mnuAdministracion_Sociedades.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuAdministracion_Sociedades.Name = "mnuAdministracion_Sociedades";
-            this.mnuAdministracion_Sociedades.Size = new System.Drawing.Size(303, 24);
+            this.mnuAdministracion_Sociedades.Size = new System.Drawing.Size(368, 28);
             this.mnuAdministracion_Sociedades.Text = "Sociedades";
             this.mnuAdministracion_Sociedades.Click += new System.EventHandler(this.mnuAdministracion_Sociedades_Click);
             // 
@@ -200,7 +204,7 @@
             // 
             this.mnuAdministracion_EjerciciosPeriodos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuAdministracion_EjerciciosPeriodos.Name = "mnuAdministracion_EjerciciosPeriodos";
-            this.mnuAdministracion_EjerciciosPeriodos.Size = new System.Drawing.Size(303, 24);
+            this.mnuAdministracion_EjerciciosPeriodos.Size = new System.Drawing.Size(368, 28);
             this.mnuAdministracion_EjerciciosPeriodos.Text = "Ejercicios y Periodos";
             this.mnuAdministracion_EjerciciosPeriodos.Click += new System.EventHandler(this.mnuAdministracion_EjerciciosPeriodos_Click);
             // 
@@ -208,7 +212,7 @@
             // 
             this.mnuAdministracionCatalogoCuentasSAT.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuAdministracionCatalogoCuentasSAT.Name = "mnuAdministracionCatalogoCuentasSAT";
-            this.mnuAdministracionCatalogoCuentasSAT.Size = new System.Drawing.Size(303, 24);
+            this.mnuAdministracionCatalogoCuentasSAT.Size = new System.Drawing.Size(368, 28);
             this.mnuAdministracionCatalogoCuentasSAT.Text = "Cargar Catálogo de Cuentas del SAT";
             this.mnuAdministracionCatalogoCuentasSAT.Click += new System.EventHandler(this.mnuAdministracionCatalogoCuentasSAT_Click);
             // 
@@ -216,7 +220,7 @@
             // 
             this.mnuAdministracion_CargaMapeoCuentas.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.mnuAdministracion_CargaMapeoCuentas.Name = "mnuAdministracion_CargaMapeoCuentas";
-            this.mnuAdministracion_CargaMapeoCuentas.Size = new System.Drawing.Size(303, 24);
+            this.mnuAdministracion_CargaMapeoCuentas.Size = new System.Drawing.Size(368, 28);
             this.mnuAdministracion_CargaMapeoCuentas.Text = "Carga Mapeo Cuentas";
             this.mnuAdministracion_CargaMapeoCuentas.Click += new System.EventHandler(this.mnuAdministracion_CargaMapeoCuentas_Click);
             // 
@@ -224,9 +228,17 @@
             // 
             this.mnuAdministracion_BorrarBaseDeDatos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnuAdministracion_BorrarBaseDeDatos.Name = "mnuAdministracion_BorrarBaseDeDatos";
-            this.mnuAdministracion_BorrarBaseDeDatos.Size = new System.Drawing.Size(303, 24);
+            this.mnuAdministracion_BorrarBaseDeDatos.Size = new System.Drawing.Size(368, 28);
             this.mnuAdministracion_BorrarBaseDeDatos.Text = "Borrar Base de Datos";
             this.mnuAdministracion_BorrarBaseDeDatos.Click += new System.EventHandler(this.mnuAdministracion_BorrarBaseDeDatos_Click);
+            // 
+            // mnuAdministracion_mapeoMetodosPago
+            // 
+            this.mnuAdministracion_mapeoMetodosPago.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.mnuAdministracion_mapeoMetodosPago.Name = "mnuAdministracion_mapeoMetodosPago";
+            this.mnuAdministracion_mapeoMetodosPago.Size = new System.Drawing.Size(368, 28);
+            this.mnuAdministracion_mapeoMetodosPago.Text = "Mapeo Métodos de Pago";
+            this.mnuAdministracion_mapeoMetodosPago.Click += new System.EventHandler(this.mnuAdministracion_mapeoMetodosPago_Click);
             // 
             // mnuCatalogoDeCuentas
             // 
@@ -248,7 +260,7 @@
             // 
             this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSAT.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSAT.Name = "mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSAT";
-            this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSAT.Size = new System.Drawing.Size(425, 24);
+            this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSAT.Size = new System.Drawing.Size(520, 28);
             this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSAT.Text = "Consultar Catálogo de Cuentas del SAT";
             this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSAT.Click += new System.EventHandler(this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSAT_Click);
             // 
@@ -256,7 +268,7 @@
             // 
             this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSociedad.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSociedad.Name = "mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSociedad";
-            this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSociedad.Size = new System.Drawing.Size(425, 24);
+            this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSociedad.Size = new System.Drawing.Size(520, 28);
             this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSociedad.Text = "Consultar Catálogo de Cuentas de la Sociedad";
             this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSociedad.Click += new System.EventHandler(this.mnuCatalogoDeCuentas_ConsultarCatalogoCuentasSociedad_Click);
             // 
@@ -264,7 +276,7 @@
             // 
             this.mnuCatalogoDeCuentas_ConvertirCatalogoCodigoAgrupadorDeCuentasSAT.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.mnuCatalogoDeCuentas_ConvertirCatalogoCodigoAgrupadorDeCuentasSAT.Name = "mnuCatalogoDeCuentas_ConvertirCatalogoCodigoAgrupadorDeCuentasSAT";
-            this.mnuCatalogoDeCuentas_ConvertirCatalogoCodigoAgrupadorDeCuentasSAT.Size = new System.Drawing.Size(425, 24);
+            this.mnuCatalogoDeCuentas_ConvertirCatalogoCodigoAgrupadorDeCuentasSAT.Size = new System.Drawing.Size(520, 28);
             this.mnuCatalogoDeCuentas_ConvertirCatalogoCodigoAgrupadorDeCuentasSAT.Text = "Convertir Catálogo a Código agrupador de cuentas SAT ";
             this.mnuCatalogoDeCuentas_ConvertirCatalogoCodigoAgrupadorDeCuentasSAT.Click += new System.EventHandler(this.mnuCatalogoDeCuentas_ConvertirCatalogoCodigoAgrupadorDeCuentasSAT_Click);
             // 
@@ -272,7 +284,7 @@
             // 
             this.mnuCatalogoDeCuentas_ConsultarCatalogosFormatoXML.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.mnuCatalogoDeCuentas_ConsultarCatalogosFormatoXML.Name = "mnuCatalogoDeCuentas_ConsultarCatalogosFormatoXML";
-            this.mnuCatalogoDeCuentas_ConsultarCatalogosFormatoXML.Size = new System.Drawing.Size(425, 24);
+            this.mnuCatalogoDeCuentas_ConsultarCatalogosFormatoXML.Size = new System.Drawing.Size(520, 28);
             this.mnuCatalogoDeCuentas_ConsultarCatalogosFormatoXML.Text = "Consultar Catálogos en formato XML ";
             this.mnuCatalogoDeCuentas_ConsultarCatalogosFormatoXML.Click += new System.EventHandler(this.mnuCatalogoDeCuentas_ConsultarCatalogosFormatoXML_Click);
             // 
@@ -280,7 +292,7 @@
             // 
             this.enviarCatálogoDeCuentasAlSATToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.enviarCatálogoDeCuentasAlSATToolStripMenuItem.Name = "enviarCatálogoDeCuentasAlSATToolStripMenuItem";
-            this.enviarCatálogoDeCuentasAlSATToolStripMenuItem.Size = new System.Drawing.Size(425, 24);
+            this.enviarCatálogoDeCuentasAlSATToolStripMenuItem.Size = new System.Drawing.Size(520, 28);
             this.enviarCatálogoDeCuentasAlSATToolStripMenuItem.Text = "Enviar Catálogos de Cuentas al SAT ";
             this.enviarCatálogoDeCuentasAlSATToolStripMenuItem.Visible = false;
             // 
@@ -288,7 +300,7 @@
             // 
             this.consultarCatálogosEnviadosAlSATToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.consultarCatálogosEnviadosAlSATToolStripMenuItem.Name = "consultarCatálogosEnviadosAlSATToolStripMenuItem";
-            this.consultarCatálogosEnviadosAlSATToolStripMenuItem.Size = new System.Drawing.Size(425, 24);
+            this.consultarCatálogosEnviadosAlSATToolStripMenuItem.Size = new System.Drawing.Size(520, 28);
             this.consultarCatálogosEnviadosAlSATToolStripMenuItem.Text = "Consultar Catálogos enviados al SAT ";
             this.consultarCatálogosEnviadosAlSATToolStripMenuItem.Visible = false;
             // 
@@ -312,7 +324,7 @@
             // 
             this.mnuBalanza_ImportarBalanza.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.mnuBalanza_ImportarBalanza.Name = "mnuBalanza_ImportarBalanza";
-            this.mnuBalanza_ImportarBalanza.Size = new System.Drawing.Size(490, 24);
+            this.mnuBalanza_ImportarBalanza.Size = new System.Drawing.Size(606, 28);
             this.mnuBalanza_ImportarBalanza.Text = "Importar Balanza";
             this.mnuBalanza_ImportarBalanza.Click += new System.EventHandler(this.mnuBalanza_ImportarBalanza_Click);
             // 
@@ -320,7 +332,7 @@
             // 
             this.mnuBalanza_ValidarBalanzaImportadaConCatalogoCuentasSociedad.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.mnuBalanza_ValidarBalanzaImportadaConCatalogoCuentasSociedad.Name = "mnuBalanza_ValidarBalanzaImportadaConCatalogoCuentasSociedad";
-            this.mnuBalanza_ValidarBalanzaImportadaConCatalogoCuentasSociedad.Size = new System.Drawing.Size(490, 24);
+            this.mnuBalanza_ValidarBalanzaImportadaConCatalogoCuentasSociedad.Size = new System.Drawing.Size(606, 28);
             this.mnuBalanza_ValidarBalanzaImportadaConCatalogoCuentasSociedad.Text = "Validar Balanza Importada con Catálogo de Cuentas de la Sociedad";
             this.mnuBalanza_ValidarBalanzaImportadaConCatalogoCuentasSociedad.Visible = false;
             this.mnuBalanza_ValidarBalanzaImportadaConCatalogoCuentasSociedad.Click += new System.EventHandler(this.mnuBalanza_ValidarBalanzaImportadaConCatalogoCuentasSociedad_Click);
@@ -329,7 +341,7 @@
             // 
             this.mnuBalanza_ValidarBalanzaImportadaConCodigoAgrupadorSAT.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.mnuBalanza_ValidarBalanzaImportadaConCodigoAgrupadorSAT.Name = "mnuBalanza_ValidarBalanzaImportadaConCodigoAgrupadorSAT";
-            this.mnuBalanza_ValidarBalanzaImportadaConCodigoAgrupadorSAT.Size = new System.Drawing.Size(490, 24);
+            this.mnuBalanza_ValidarBalanzaImportadaConCodigoAgrupadorSAT.Size = new System.Drawing.Size(606, 28);
             this.mnuBalanza_ValidarBalanzaImportadaConCodigoAgrupadorSAT.Text = "Validar Balanza con Código Agrupador del SAT";
             this.mnuBalanza_ValidarBalanzaImportadaConCodigoAgrupadorSAT.Click += new System.EventHandler(this.mnuBalanza_ValidarBalanzaImportadaConCodigoAgrupadorSAT_Click);
             // 
@@ -337,7 +349,7 @@
             // 
             this.mnuBalanza_ConsultarBalanzaImportadaConFormatoXML.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.mnuBalanza_ConsultarBalanzaImportadaConFormatoXML.Name = "mnuBalanza_ConsultarBalanzaImportadaConFormatoXML";
-            this.mnuBalanza_ConsultarBalanzaImportadaConFormatoXML.Size = new System.Drawing.Size(490, 24);
+            this.mnuBalanza_ConsultarBalanzaImportadaConFormatoXML.Size = new System.Drawing.Size(606, 28);
             this.mnuBalanza_ConsultarBalanzaImportadaConFormatoXML.Text = "Consultar Balanza Importada en formato XML";
             this.mnuBalanza_ConsultarBalanzaImportadaConFormatoXML.Click += new System.EventHandler(this.mnuBalanza_ConsultarBalanzaImportadaConFormatoXML_Click);
             // 
@@ -345,7 +357,7 @@
             // 
             this.enviarLaBalanzaAlSATToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.enviarLaBalanzaAlSATToolStripMenuItem.Name = "enviarLaBalanzaAlSATToolStripMenuItem";
-            this.enviarLaBalanzaAlSATToolStripMenuItem.Size = new System.Drawing.Size(490, 24);
+            this.enviarLaBalanzaAlSATToolStripMenuItem.Size = new System.Drawing.Size(606, 28);
             this.enviarLaBalanzaAlSATToolStripMenuItem.Text = "Enviar la Balanza al SAT";
             this.enviarLaBalanzaAlSATToolStripMenuItem.Visible = false;
             // 
@@ -353,7 +365,7 @@
             // 
             this.consultaDeLasBalanzasEnviadasAlSATToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.consultaDeLasBalanzasEnviadasAlSATToolStripMenuItem.Name = "consultaDeLasBalanzasEnviadasAlSATToolStripMenuItem";
-            this.consultaDeLasBalanzasEnviadasAlSATToolStripMenuItem.Size = new System.Drawing.Size(490, 24);
+            this.consultaDeLasBalanzasEnviadasAlSATToolStripMenuItem.Size = new System.Drawing.Size(606, 28);
             this.consultaDeLasBalanzasEnviadasAlSATToolStripMenuItem.Text = "Consulta de las Balanzas enviadas al SAT";
             this.consultaDeLasBalanzasEnviadasAlSATToolStripMenuItem.Visible = false;
             // 
@@ -377,7 +389,7 @@
             // 
             this.mnuPolizas_ImportarPolizas.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.mnuPolizas_ImportarPolizas.Name = "mnuPolizas_ImportarPolizas";
-            this.mnuPolizas_ImportarPolizas.Size = new System.Drawing.Size(303, 24);
+            this.mnuPolizas_ImportarPolizas.Size = new System.Drawing.Size(367, 28);
             this.mnuPolizas_ImportarPolizas.Text = "Importar Pólizas";
             this.mnuPolizas_ImportarPolizas.Click += new System.EventHandler(this.mnuPolizas_ImportarPolizas_Click);
             // 
@@ -385,7 +397,7 @@
             // 
             this.mnuPolizas_ImportarDatosComplementarios.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.mnuPolizas_ImportarDatosComplementarios.Name = "mnuPolizas_ImportarDatosComplementarios";
-            this.mnuPolizas_ImportarDatosComplementarios.Size = new System.Drawing.Size(303, 24);
+            this.mnuPolizas_ImportarDatosComplementarios.Size = new System.Drawing.Size(367, 28);
             this.mnuPolizas_ImportarDatosComplementarios.Text = "Importar Datos Complementarios";
             this.mnuPolizas_ImportarDatosComplementarios.Click += new System.EventHandler(this.mnuPolizas_ImportarDatosComplementarios_Click);
             // 
@@ -393,7 +405,7 @@
             // 
             this.mnuPolizas_ValidarPolizas.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.mnuPolizas_ValidarPolizas.Name = "mnuPolizas_ValidarPolizas";
-            this.mnuPolizas_ValidarPolizas.Size = new System.Drawing.Size(303, 24);
+            this.mnuPolizas_ValidarPolizas.Size = new System.Drawing.Size(367, 28);
             this.mnuPolizas_ValidarPolizas.Text = "Validar Pólizas";
             this.mnuPolizas_ValidarPolizas.Click += new System.EventHandler(this.mnuPolizas_ValidarPolizas_Click);
             // 
@@ -401,7 +413,7 @@
             // 
             this.mnuPolizas_ConsultarPolizasFormatoXML.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.mnuPolizas_ConsultarPolizasFormatoXML.Name = "mnuPolizas_ConsultarPolizasFormatoXML";
-            this.mnuPolizas_ConsultarPolizasFormatoXML.Size = new System.Drawing.Size(303, 24);
+            this.mnuPolizas_ConsultarPolizasFormatoXML.Size = new System.Drawing.Size(367, 28);
             this.mnuPolizas_ConsultarPolizasFormatoXML.Text = "Consultar Pólizas en formato XML";
             this.mnuPolizas_ConsultarPolizasFormatoXML.Click += new System.EventHandler(this.mnuPolizas_ConsultarPolizasFormatoXML_Click);
             // 
@@ -409,7 +421,7 @@
             // 
             this.enviarLasPólizasAlSATToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.enviarLasPólizasAlSATToolStripMenuItem.Name = "enviarLasPólizasAlSATToolStripMenuItem";
-            this.enviarLasPólizasAlSATToolStripMenuItem.Size = new System.Drawing.Size(303, 24);
+            this.enviarLasPólizasAlSATToolStripMenuItem.Size = new System.Drawing.Size(367, 28);
             this.enviarLasPólizasAlSATToolStripMenuItem.Text = "Enviar las Pólizas al SAT";
             this.enviarLasPólizasAlSATToolStripMenuItem.Visible = false;
             // 
@@ -417,9 +429,19 @@
             // 
             this.consultarLasPólizasEnviadasAlSATToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.consultarLasPólizasEnviadasAlSATToolStripMenuItem.Name = "consultarLasPólizasEnviadasAlSATToolStripMenuItem";
-            this.consultarLasPólizasEnviadasAlSATToolStripMenuItem.Size = new System.Drawing.Size(303, 24);
+            this.consultarLasPólizasEnviadasAlSATToolStripMenuItem.Size = new System.Drawing.Size(367, 28);
             this.consultarLasPólizasEnviadasAlSATToolStripMenuItem.Text = "Consultar las Pólizas enviadas al SAT";
             this.consultarLasPólizasEnviadasAlSATToolStripMenuItem.Visible = false;
+            // 
+            // mnuSalir
+            // 
+            this.mnuSalir.AutoSize = false;
+            this.mnuSalir.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.mnuSalir.ForeColor = System.Drawing.Color.White;
+            this.mnuSalir.Name = "mnuSalir";
+            this.mnuSalir.Size = new System.Drawing.Size(80, 32);
+            this.mnuSalir.Text = "Salir";
+            this.mnuSalir.Click += new System.EventHandler(this.mnuSalir_Click);
             // 
             // mnuTextboxBlank
             // 
@@ -433,34 +455,24 @@
             this.mnuTextboxBlank.Name = "mnuTextboxBlank";
             this.mnuTextboxBlank.Size = new System.Drawing.Size(340, 32);
             // 
-            // mnuSalir
-            // 
-            this.mnuSalir.AutoSize = false;
-            this.mnuSalir.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.mnuSalir.ForeColor = System.Drawing.Color.White;
-            this.mnuSalir.Name = "mnuSalir";
-            this.mnuSalir.Size = new System.Drawing.Size(80, 32);
-            this.mnuSalir.Text = "Salir";
-            this.mnuSalir.Click += new System.EventHandler(this.mnuSalir_Click);
-            // 
             // lblVersion
             // 
             this.lblVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblVersion.AutoSize = true;
             this.lblVersion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
-            this.lblVersion.Location = new System.Drawing.Point(729, 28);
+            this.lblVersion.ForeColor = System.Drawing.Color.Black;
+            this.lblVersion.Location = new System.Drawing.Point(682, 28);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(234, 15);
+            this.lblVersion.Size = new System.Drawing.Size(298, 20);
             this.lblVersion.TabIndex = 19;
-            this.lblVersion.Text = "Contablidad por Medios Electrónicos v1.1";
+            this.lblVersion.Text = "Contablidad por Medios Electrónicos v1.3";
             // 
             // picMainBackground
             // 
             this.picMainBackground.Dock = System.Windows.Forms.DockStyle.Top;
             this.picMainBackground.Location = new System.Drawing.Point(0, 0);
             this.picMainBackground.Name = "picMainBackground";
-            this.picMainBackground.Size = new System.Drawing.Size(1029, 52);
+            this.picMainBackground.Size = new System.Drawing.Size(982, 52);
             this.picMainBackground.TabIndex = 17;
             this.picMainBackground.TabStop = false;
             // 
@@ -471,6 +483,7 @@
             this.tlsSociedadSeleccionada.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.tlsSociedadSeleccionada.GripMargin = new System.Windows.Forms.Padding(0);
             this.tlsSociedadSeleccionada.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.tlsSociedadSeleccionada.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tlsSociedadSeleccionada.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblSociedad,
             this.lblNumeroSociedadSeleccionada,
@@ -480,7 +493,7 @@
             this.tlsSociedadSeleccionada.Location = new System.Drawing.Point(0, 52);
             this.tlsSociedadSeleccionada.Name = "tlsSociedadSeleccionada";
             this.tlsSociedadSeleccionada.ShowItemToolTips = false;
-            this.tlsSociedadSeleccionada.Size = new System.Drawing.Size(1029, 32);
+            this.tlsSociedadSeleccionada.Size = new System.Drawing.Size(982, 32);
             this.tlsSociedadSeleccionada.Stretch = true;
             this.tlsSociedadSeleccionada.TabIndex = 22;
             this.tlsSociedadSeleccionada.DoubleClick += new System.EventHandler(this.tlsSociedadSeleccionada_DoubleClick);
@@ -538,10 +551,10 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1029, 547);
+            this.ClientSize = new System.Drawing.Size(982, 657);
             this.Controls.Add(this.picLogo);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.lblSistema);
@@ -621,5 +634,6 @@
 		private System.Windows.Forms.ToolStripMenuItem mnuAdministracion_BorrarBaseDeDatos;
 		private System.Windows.Forms.ToolStripMenuItem mnuPolizas_ImportarDatosComplementarios;
         private System.Windows.Forms.ToolStripMenuItem mnuAdministracion_CargaMapeoCuentas;
+        private System.Windows.Forms.ToolStripMenuItem mnuAdministracion_mapeoMetodosPago;
     }
 }

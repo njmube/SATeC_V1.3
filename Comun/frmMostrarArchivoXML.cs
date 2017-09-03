@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Xsl;
-using System.IO;
-using System.Reflection;
+﻿using ICSharpCode.SharpZipLib.Zip;
+using System;
 using System.Globalization;
-using System.Threading;
-using ICSharpCode.SharpZipLib.Zip;
+using System.IO;
+using System.Windows.Forms;
 
 namespace SATeC.Comun
 {
@@ -47,6 +37,7 @@ namespace SATeC.Comun
         private string NombreRepositorio { get; set; }
         private string ArchivoXSLTProcesar { get; set; }
         private string TagNameNode { get; set; }
+        private string TipoEnvio { get; set; }
 
         frmLoading loading = new frmLoading();
 
@@ -124,6 +115,7 @@ namespace SATeC.Comun
                     NombreRepositorio = "Balanzas";
                     ArchivoXSLTProcesar = "BalanzaComprobacion_1_1.xslt";
                     TagNameNode = "BCE:Balanza";
+                    TipoEnvio = Database.obtenerDato("SELECT TipoEnvio FROM SATeC_Balanzas WHERE ID_Balanza = " + IDXML);
                 }
                 else if (this.TipoXML == TipoMXL.Polizas)
                 {
@@ -190,7 +182,7 @@ namespace SATeC.Comun
                 }
                 else if (this.TipoXML == TipoMXL.Balanza)
                 {
-                    FileName += "BN";
+                    FileName += "B" + TipoEnvio;
                 }
                 else if (this.TipoXML == TipoMXL.Polizas)
                 {
@@ -262,9 +254,6 @@ namespace SATeC.Comun
                         }
                         else
                         {
-
-
-
                             File.Copy(ArchivoXMLTemporal, pathRepository + "\\" + FileName, true);
 
                             using (ZipOutputStream s = new ZipOutputStream(File.Create(pathRepository + "\\" + fileZip)))

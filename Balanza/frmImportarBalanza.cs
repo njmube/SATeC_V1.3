@@ -197,7 +197,7 @@ namespace SATeC.Balanza {
             CuentasNoExisten = new List<string>();
             CuentasNoRelacionadas = new List<string>();
             
-            int totalNoValidos = 0;            
+            int totalNoValidos = 0;
             int totalCuentasNoExisten = 0;
             int totalCuentasNoRelacionadas = 0;
 
@@ -526,7 +526,7 @@ namespace SATeC.Balanza {
                 if (TipoEnvio.Equals("C"))
                     SQL += ", GETDATE()";
                 else
-                    SQL += ", NULL";
+                    SQL += ", '2015-01-01'";
 
                 SQL += ")\n";
 

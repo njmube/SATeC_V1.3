@@ -24,7 +24,7 @@ namespace SATeC.CatalogoDeCuentas {
         int totalRelacionadas = 0;
         int totalNoRelacionadas = 0;
         
-        List<CatalogoCtas> listaCtas;
+        List<SATeC.CatalogoDeCuentasV13.CatalogoCtas> listaCtas;
 
 		public frmRelacionDeCuentasConCodigoAgrupadorSAT() {
 			InitializeComponent();
@@ -416,14 +416,14 @@ namespace SATeC.CatalogoDeCuentas {
 		private bool generarArchivoXMLCuentasSociedad(out string XMLToDatabase, string Ejercicio, string Periodo) {
 			bool Generado = true;
 
-            Catalogo catalogo = new Catalogo();
+            SATeC.CatalogoDeCuentasV13.Catalogo catalogo = new SATeC.CatalogoDeCuentasV13.Catalogo();
 
             catalogo.Version = Database.obtenerDato("select valor from SATeC_Parametrizacion where clave = 'VERSIONXML' AND activo = 1");
             catalogo.RFC = General.RFC_SociedadSeleccionada.Trim();
-            catalogo.Mes = Periodo;
+            catalogo.Mes = Tools.GetCode<SATeC.CatalogoDeCuentasV13.CatalogoMes>(Periodo);
             catalogo.Anio = int.Parse(Ejercicio);
 
-            listaCtas = new List<CatalogoCtas>();
+            listaCtas = new List<SATeC.CatalogoDeCuentasV13.CatalogoCtas>();
 
             foreach (TreeGridNode tgnCuenta in tgvCatalogoCuentasSociedad.Nodes)
             {
@@ -432,7 +432,7 @@ namespace SATeC.CatalogoDeCuentas {
 
             catalogo.Ctas = listaCtas.ToArray();
             
-            XmlSerializer ser = new XmlSerializer(typeof(Catalogo));
+            XmlSerializer ser = new XmlSerializer(typeof(SATeC.CatalogoDeCuentasV13.Catalogo));
             StringBuilder sb = new StringBuilder();
 
             using (XmlWriter writer = XmlWriter.Create(sb, new XmlWriterSettings()
@@ -444,8 +444,8 @@ namespace SATeC.CatalogoDeCuentas {
             {
 
                 XmlSerializerNamespaces xmlNameSpace = new XmlSerializerNamespaces();
-                xmlNameSpace.Add("catalogocuentas", "www.sat.gob.mx/esquemas/ContabilidadE/1_1/CatalogoCuentas");
-                xmlNameSpace.Add("schemaLocation", "www.sat.gob.mx/esquemas/ContabilidadE/1_1/CatalogoCuentas http://www.sat.gob.mx/esquemas/ContabilidadE/1_1/CatalogoCuentas/CatalogoCuentas_1_1.xsd");
+                xmlNameSpace.Add("catalogocuentas", "www.sat.gob.mx/esquemas/ContabilidadE/1_3/CatalogoCuentas");
+                xmlNameSpace.Add("schemaLocation", "http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/CatalogoCuentas http://www.sat.gob.mx/esquemas/ContabilidadE/1_3/CatalogoCuentas/CatalogoCuentas_1_3.xsd");
                 xmlNameSpace.Add("xsi", "http://www.w3.org/2001/XMLSchema-instance");
 
                 ser.Serialize(writer, catalogo, xmlNameSpace);
@@ -464,9 +464,9 @@ namespace SATeC.CatalogoDeCuentas {
 		}
         private void obtenerXMLCuenta(TreeGridNode tgnCuenta)
         {
-            CatalogoCtas item = new CatalogoCtas();
+            SATeC.CatalogoDeCuentasV13.CatalogoCtas item = new SATeC.CatalogoDeCuentasV13.CatalogoCtas();
 
-            item.CodAgrup = tgnCuenta.Cells["CodigoAgrupador"].Value.ToString();
+            item.CodAgrup = Tools.GetCode<SATeC.CatalogoDeCuentasV13.c_CodAgrup>(tgnCuenta.Cells["CodigoAgrupador"].Value.ToString());
             item.NumCta = tgnCuenta.Cells["CuentaSociedad"].Value.ToString();
             item.Desc = RemoveInvalidXmlChars(tgnCuenta.Cells["DescripcionCuentaSociedad"].Value.ToString());
 
@@ -498,7 +498,7 @@ namespace SATeC.CatalogoDeCuentas {
 
         private string QuitarCaracteresEspeciales(string texto)
         {
-            string textoFormateado = texto.Replace("\"", "&quot;");            
+            string textoFormateado = texto.Replace("\"", "&quot;");
             textoFormateado = textoFormateado.Replace("'", "&apos;");
             textoFormateado = textoFormateado.Replace("<", "&lt;");
             textoFormateado = textoFormateado.Replace(">", "&gt;");

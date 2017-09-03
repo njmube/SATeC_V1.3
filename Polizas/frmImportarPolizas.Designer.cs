@@ -102,7 +102,7 @@
             this.lblArchivoPolizas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.lblArchivoPolizas.Location = new System.Drawing.Point(5, 161);
             this.lblArchivoPolizas.Name = "lblArchivoPolizas";
-            this.lblArchivoPolizas.Size = new System.Drawing.Size(142, 19);
+            this.lblArchivoPolizas.Size = new System.Drawing.Size(176, 23);
             this.lblArchivoPolizas.TabIndex = 7;
             this.lblArchivoPolizas.Text = "Archivo de las Pólizas:";
             // 
@@ -119,7 +119,7 @@
             this.txtArchivoPolizas.MaxLength = 500;
             this.txtArchivoPolizas.Name = "txtArchivoPolizas";
             this.txtArchivoPolizas.ReadOnly = true;
-            this.txtArchivoPolizas.Size = new System.Drawing.Size(336, 25);
+            this.txtArchivoPolizas.Size = new System.Drawing.Size(336, 30);
             this.txtArchivoPolizas.TabIndex = 8;
             this.txtArchivoPolizas.Text = "1234567890";
             // 
@@ -149,7 +149,7 @@
             this.txtPathArchivoPolizas.MaxLength = 500;
             this.txtPathArchivoPolizas.Name = "txtPathArchivoPolizas";
             this.txtPathArchivoPolizas.ReadOnly = true;
-            this.txtPathArchivoPolizas.Size = new System.Drawing.Size(336, 18);
+            this.txtPathArchivoPolizas.Size = new System.Drawing.Size(336, 23);
             this.txtPathArchivoPolizas.TabIndex = 9;
             this.txtPathArchivoPolizas.Text = "1234567890";
             this.txtPathArchivoPolizas.Visible = false;
@@ -162,7 +162,7 @@
             this.chkPrimerFilaNombresColumnas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.chkPrimerFilaNombresColumnas.Location = new System.Drawing.Point(163, 158);
             this.chkPrimerFilaNombresColumnas.Name = "chkPrimerFilaNombresColumnas";
-            this.chkPrimerFilaNombresColumnas.Size = new System.Drawing.Size(338, 23);
+            this.chkPrimerFilaNombresColumnas.Size = new System.Drawing.Size(421, 27);
             this.chkPrimerFilaNombresColumnas.TabIndex = 1;
             this.chkPrimerFilaNombresColumnas.Text = "Primer fila de datos contiene nombres de columnas";
             this.chkPrimerFilaNombresColumnas.UseVisualStyleBackColor = false;
@@ -179,7 +179,7 @@
             this.cmbEjercicioPeriodo.Location = new System.Drawing.Point(184, 40);
             this.cmbEjercicioPeriodo.MaxDropDownItems = 12;
             this.cmbEjercicioPeriodo.Name = "cmbEjercicioPeriodo";
-            this.cmbEjercicioPeriodo.Size = new System.Drawing.Size(150, 25);
+            this.cmbEjercicioPeriodo.Size = new System.Drawing.Size(150, 31);
             this.cmbEjercicioPeriodo.TabIndex = 0;
             this.cmbEjercicioPeriodo.ValueMember = "Valor";
             // 
@@ -191,7 +191,7 @@
             this.lblEjercicioPeriodo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.lblEjercicioPeriodo.Location = new System.Drawing.Point(28, 43);
             this.lblEjercicioPeriodo.Name = "lblEjercicioPeriodo";
-            this.lblEjercicioPeriodo.Size = new System.Drawing.Size(120, 19);
+            this.lblEjercicioPeriodo.Size = new System.Drawing.Size(151, 23);
             this.lblEjercicioPeriodo.TabIndex = 6;
             this.lblEjercicioPeriodo.Text = "Ejercicio / Periodo:";
             // 
@@ -203,7 +203,7 @@
             this.lblTransacciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.lblTransacciones.Location = new System.Drawing.Point(13, 353);
             this.lblTransacciones.Name = "lblTransacciones";
-            this.lblTransacciones.Size = new System.Drawing.Size(101, 19);
+            this.lblTransacciones.Size = new System.Drawing.Size(118, 23);
             this.lblTransacciones.TabIndex = 11;
             this.lblTransacciones.Text = "Transacciones";
             // 
@@ -215,7 +215,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.label1.Location = new System.Drawing.Point(600, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 19);
+            this.label1.Size = new System.Drawing.Size(97, 23);
             this.label1.TabIndex = 12;
             this.label1.Text = "No. Pólizas:";
             // 
@@ -227,7 +227,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.label2.Location = new System.Drawing.Point(600, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 19);
+            this.label2.Size = new System.Drawing.Size(95, 23);
             this.label2.TabIndex = 13;
             this.label2.Text = "Total Debe:";
             // 
@@ -239,7 +239,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.label3.Location = new System.Drawing.Point(600, 97);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 19);
+            this.label3.Size = new System.Drawing.Size(101, 23);
             this.label3.TabIndex = 14;
             this.label3.Text = "Total Haber:";
             // 
@@ -252,7 +252,7 @@
             this.txtNoPolizas.MaxLength = 500;
             this.txtNoPolizas.Name = "txtNoPolizas";
             this.txtNoPolizas.ReadOnly = true;
-            this.txtNoPolizas.Size = new System.Drawing.Size(80, 25);
+            this.txtNoPolizas.Size = new System.Drawing.Size(80, 30);
             this.txtNoPolizas.TabIndex = 15;
             this.txtNoPolizas.Text = "1234567890";
             this.txtNoPolizas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -266,7 +266,7 @@
             this.txtTotalHaber.MaxLength = 500;
             this.txtTotalHaber.Name = "txtTotalHaber";
             this.txtTotalHaber.ReadOnly = true;
-            this.txtTotalHaber.Size = new System.Drawing.Size(150, 25);
+            this.txtTotalHaber.Size = new System.Drawing.Size(150, 30);
             this.txtTotalHaber.TabIndex = 16;
             this.txtTotalHaber.Text = "12345678901234567890";
             this.txtTotalHaber.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -280,7 +280,7 @@
             this.txtTotalDebe.MaxLength = 500;
             this.txtTotalDebe.Name = "txtTotalDebe";
             this.txtTotalDebe.ReadOnly = true;
-            this.txtTotalDebe.Size = new System.Drawing.Size(150, 25);
+            this.txtTotalDebe.Size = new System.Drawing.Size(150, 30);
             this.txtTotalDebe.TabIndex = 17;
             this.txtTotalDebe.Text = "12345678901234567890";
             this.txtTotalDebe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -294,7 +294,7 @@
             this.lblModulo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblModulo.Location = new System.Drawing.Point(1, 3);
             this.lblModulo.Name = "lblModulo";
-            this.lblModulo.Size = new System.Drawing.Size(158, 25);
+            this.lblModulo.Size = new System.Drawing.Size(204, 32);
             this.lblModulo.TabIndex = 19;
             this.lblModulo.Text = "Importar Pólizas";
             // 
@@ -330,7 +330,7 @@
             this.txtDiferencia.MaxLength = 500;
             this.txtDiferencia.Name = "txtDiferencia";
             this.txtDiferencia.ReadOnly = true;
-            this.txtDiferencia.Size = new System.Drawing.Size(150, 25);
+            this.txtDiferencia.Size = new System.Drawing.Size(150, 30);
             this.txtDiferencia.TabIndex = 27;
             this.txtDiferencia.Text = "12345678901234567890";
             this.txtDiferencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -343,7 +343,7 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.label4.Location = new System.Drawing.Point(600, 124);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 19);
+            this.label4.Size = new System.Drawing.Size(90, 23);
             this.label4.TabIndex = 26;
             this.label4.Text = "Diferencia:";
             // 
@@ -356,7 +356,7 @@
             this.txtTotalNoValidas.MaxLength = 500;
             this.txtTotalNoValidas.Name = "txtTotalNoValidas";
             this.txtTotalNoValidas.ReadOnly = true;
-            this.txtTotalNoValidas.Size = new System.Drawing.Size(80, 25);
+            this.txtTotalNoValidas.Size = new System.Drawing.Size(80, 30);
             this.txtTotalNoValidas.TabIndex = 29;
             this.txtTotalNoValidas.Text = "1234567890";
             this.txtTotalNoValidas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -369,7 +369,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.label5.Location = new System.Drawing.Point(543, 151);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 19);
+            this.label5.Size = new System.Drawing.Size(162, 23);
             this.label5.TabIndex = 28;
             this.label5.Text = "Cuentas No Validas:";
             // 
@@ -385,7 +385,7 @@
             this.cmbTipoSolicitud.Location = new System.Drawing.Point(184, 62);
             this.cmbTipoSolicitud.MaxDropDownItems = 12;
             this.cmbTipoSolicitud.Name = "cmbTipoSolicitud";
-            this.cmbTipoSolicitud.Size = new System.Drawing.Size(207, 25);
+            this.cmbTipoSolicitud.Size = new System.Drawing.Size(207, 31);
             this.cmbTipoSolicitud.TabIndex = 30;
             this.cmbTipoSolicitud.ValueMember = "Valor";
             this.cmbTipoSolicitud.SelectedIndexChanged += new System.EventHandler(this.cmbTipoSolicitud_SelectedIndexChanged);
@@ -398,7 +398,7 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.label6.Location = new System.Drawing.Point(61, 67);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 19);
+            this.label6.Size = new System.Drawing.Size(117, 23);
             this.label6.TabIndex = 31;
             this.label6.Text = "Tipo Solicitud:";
             // 
@@ -410,7 +410,7 @@
             this.lblNumeroOrden.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.lblNumeroOrden.Location = new System.Drawing.Point(47, 93);
             this.lblNumeroOrden.Name = "lblNumeroOrden";
-            this.lblNumeroOrden.Size = new System.Drawing.Size(105, 19);
+            this.lblNumeroOrden.Size = new System.Drawing.Size(130, 23);
             this.lblNumeroOrden.TabIndex = 32;
             this.lblNumeroOrden.Text = "Número Orden:";
             // 
@@ -418,17 +418,21 @@
             // 
             this.txtNumeroOrden.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.txtNumeroOrden.Location = new System.Drawing.Point(187, 93);
+            this.txtNumeroOrden.MaxLength = 13;
             this.txtNumeroOrden.Name = "txtNumeroOrden";
-            this.txtNumeroOrden.Size = new System.Drawing.Size(204, 25);
+            this.txtNumeroOrden.Size = new System.Drawing.Size(204, 30);
             this.txtNumeroOrden.TabIndex = 33;
+            this.txtNumeroOrden.Leave += new System.EventHandler(this.txtNumeroOrden_Leave);
             // 
             // txtNumeroTramite
             // 
             this.txtNumeroTramite.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.txtNumeroTramite.Location = new System.Drawing.Point(187, 121);
+            this.txtNumeroTramite.MaxLength = 14;
             this.txtNumeroTramite.Name = "txtNumeroTramite";
-            this.txtNumeroTramite.Size = new System.Drawing.Size(204, 25);
+            this.txtNumeroTramite.Size = new System.Drawing.Size(204, 30);
             this.txtNumeroTramite.TabIndex = 35;
+            this.txtNumeroTramite.Leave += new System.EventHandler(this.txtNumeroTramite_Leave);
             // 
             // lblNumeroTramite
             // 
@@ -438,7 +442,7 @@
             this.lblNumeroTramite.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.lblNumeroTramite.Location = new System.Drawing.Point(38, 121);
             this.lblNumeroTramite.Name = "lblNumeroTramite";
-            this.lblNumeroTramite.Size = new System.Drawing.Size(112, 19);
+            this.lblNumeroTramite.Size = new System.Drawing.Size(139, 23);
             this.lblNumeroTramite.TabIndex = 34;
             this.lblNumeroTramite.Text = "Número Trámite:";
             // 
@@ -638,7 +642,7 @@
             // 
             // frmImportarPolizas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(898, 639);
@@ -679,7 +683,7 @@
             this.Name = "frmImportarPolizas";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Importar Pólizas";
             this.Load += new System.EventHandler(this.frmImportarPolizas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransacciones)).EndInit();
